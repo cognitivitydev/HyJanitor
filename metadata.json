@@ -1,0 +1,10 @@
+{
+    "$schema": "../CTAutocomplete/schema.json",
+    "name": "HyJanitor",
+    "description": "A highly-customizable module to clear unwanted messages from chat.",
+    "creator": "cognitivity",
+    "version": "1.0.0",
+    "entry": "index.js",
+    "requires": ["Elementa", "requestV2"],
+    "pictureLink": "https://i.imgur.com/ykNEhxy.png"
+}
