@@ -33,26 +33,20 @@ let lastRatelimited = false;
 
 export function importPreset(presets = undefined) {
     const window = new UIBlock()
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth(new FillConstraint())
-        .setHeight(new FillConstraint())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth(new FillConstraint()).setHeight(new FillConstraint())
         .setColor(new Color(0, 0, 0, 0));
 
     const background = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth((80).percent())
-        .setHeight((70).percent())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth((80).percent()).setHeight((70).percent())
         .setChildOf(window);
 
     UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-arrow_back.png"))
         .setColor(colorScheme.dark.primary.color)
-        .setX((12).pixels())
-        .setY((12).pixels())
-        .setWidth((25).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((12).pixels()).setY((12).pixels())
+        .setWidth((25).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.inversePrimary.color));
@@ -70,31 +64,26 @@ export function importPreset(presets = undefined) {
 
     new UIText("Import from Presets", false)
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((2).pixels())
         .setChildOf(background);
 
     const mainRectangle = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surfaceContainer.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((5).percent(), (25).pixels()))
-        .setWidth((90).percent())
-        .setHeight((85).percent())
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((5).percent(), (25).pixels()))
+        .setWidth((90).percent()).setHeight((85).percent())
         .setChildOf(background);
 
     if (presets == undefined) {
         new UIText("Loading Presets...", false)
             .setColor(colorScheme.dark.primary.color)
-            .setX(new CenterConstraint())
-            .setY(new SubtractiveConstraint(new CenterConstraint(), (10).pixels()))
+            .setX(new CenterConstraint()).setY(new SubtractiveConstraint(new CenterConstraint(), (10).pixels()))
             .setTextScale((2).pixels())
             .setChildOf(mainRectangle);
 
         let progressText = new UIText("0.00s elapsed", false)
             .setColor(colorScheme.dark.outline.color)
-            .setX(new CenterConstraint())
-            .setY(new AdditiveConstraint(new CenterConstraint(), (10).pixels()))
+            .setX(new CenterConstraint()).setY(new AdditiveConstraint(new CenterConstraint(), (10).pixels()))
             .setTextScale((1.5).pixels())
             .setChildOf(mainRectangle);
 
@@ -126,36 +115,29 @@ export function importPreset(presets = undefined) {
         return;
     }
     const presetContainer = new ScrollComponent()
-        .setX(new CenterConstraint())
-        .setY((10).pixels())
-        .setWidth((95).percent())
-        .setHeight((95).percent())
+        .setX(new CenterConstraint()).setY((10).pixels())
+        .setWidth((95).percent()).setHeight((95).percent())
         .setChildOf(mainRectangle);
 
     if (presets.rateLimited || presets.useCache) {
         if (presets.rateLimited) {
             const rateLimitRectangle = new UIRoundedRectangle(12)
                 .setColor(colorScheme.dark.warnContainer.color)
-                .setX(new CenterConstraint())
-                .setY(new SiblingConstraint(4))
-                .setWidth((90).percent())
-                .setHeight((40).pixels())
+                .setX(new CenterConstraint()).setY(new SiblingConstraint(4))
+                .setWidth((90).percent()).setHeight((40).pixels())
                 .setChildOf(presetContainer);
 
             new UIText("GitHub ratelimit reached. Results may be outdated or hidden.", false)
                 .setColor(colorScheme.dark.warn.color)
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
                 .setTextScale((1.5).pixels())
                 .setChildOf(rateLimitRectangle);
         }
 
         const refreshRectangle = new UIRoundedRectangle(12)
             .setColor(colorScheme.dark.secondaryContainer.color)
-            .setX(new CenterConstraint())
-            .setY(new SiblingConstraint(4))
-            .setWidth((50).percent())
-            .setHeight((30).pixels())
+            .setX(new CenterConstraint()).setY(new SiblingConstraint(4))
+            .setWidth((50).percent()).setHeight((30).pixels())
             .onMouseClick(() => {
                 lastRatelimited = false;
                 lastUpdated = 0;
@@ -165,16 +147,13 @@ export function importPreset(presets = undefined) {
 
         UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-restart.png"))
             .setColor(colorScheme.dark.secondary.color)
-            .setX((4).pixels())
-            .setY(new CenterConstraint())
-            .setWidth((17).pixels())
-            .setHeight(new AspectConstraint())
+            .setX((4).pixels()).setY(new CenterConstraint())
+            .setWidth((17).pixels()).setHeight(new AspectConstraint())
             .setChildOf(refreshRectangle);
 
         new UIText("Refresh cached presets", false)
             .setColor(colorScheme.dark.secondary.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setTextScale((1.5).pixels())
             .setChildOf(refreshRectangle);
 
@@ -203,63 +182,49 @@ export function importPreset(presets = undefined) {
 
         let presetRectangle = new UIRoundedRectangle(12)
             .setColor(colorScheme.dark.surfaceContainerHigh.color)
-            .setX(new CenterConstraint())
-            .setY(new SiblingConstraint(8))
-            .setWidth((100).percent())
-            .setHeight((40).percent())
+            .setX(new CenterConstraint()).setY(new SiblingConstraint(8))
+            .setWidth((100).percent()).setHeight((40).percent())
             .setChildOf(presetContainer);
 
         new UIWrappedText(preset.content.name, false, null, false, true)
             .setColor(colorScheme.dark.onPrimaryContainer.color)
-            .setX((16).pixels())
-            .setY((8).pixels())
-            .setWidth((40).percent())
-            .setHeight((20).pixels())
+            .setX((16).pixels()).setY((8).pixels())
+            .setWidth((40).percent()).setHeight((20).pixels())
             .setTextScale((2).pixels())
             .setChildOf(presetRectangle);
 
         new UIWrappedText(preset.author, false, null, false, true)
             .setColor(colorScheme.dark.primary.color)
-            .setX((16).pixels())
-            .setY((28).pixels())
-            .setWidth((40).percent())
-            .setHeight((15).pixels())
+            .setX((16).pixels()).setY((28).pixels())
+            .setWidth((40).percent()).setHeight((15).pixels())
             .setTextScale((1.5).pixels())
             .setChildOf(presetRectangle);
 
         new UIWrappedText("Created " + relative(preset.created) + " ago", false, null, false, true)
             .setColor(colorScheme.dark.secondary.color)
-            .setX((16).pixels())
-            .setY((51).pixels())
-            .setWidth((40).percent())
-            .setHeight((15).pixels())
+            .setX((16).pixels()).setY((51).pixels())
+            .setWidth((40).percent()).setHeight((15).pixels())
             .setTextScale((1.5).pixels())
             .setChildOf(presetRectangle);
 
         new UIWrappedText("Updated " + relative(preset.updated) + " ago", false, null, false, true)
             .setColor(colorScheme.dark.secondary.color)
-            .setX((16).pixels())
-            .setY((70).pixels())
-            .setWidth((40).percent())
-            .setHeight((15).pixels())
+            .setX((16).pixels()).setY((70).pixels())
+            .setWidth((40).percent()).setHeight((15).pixels())
             .setTextScale((1.5).pixels())
             .setChildOf(presetRectangle);
 
         new UIWrappedText(preset.description, false, null, false, true)
             .setColor(colorScheme.dark.onSurfaceVariant.color)
-            .setX((45).percent())
-            .setY(new CenterConstraint())
-            .setWidth((48).percent())
-            .setHeight((80).percent())
+            .setX((45).percent()).setY(new CenterConstraint())
+            .setWidth((48).percent()).setHeight((80).percent())
             .setTextScale((1.5).pixels())
             .setChildOf(presetRectangle);
 
         let downloadRectangle = new UIRoundedRectangle(6)
             .setColor(colorScheme.dark.successContainer.color)
-            .setX((16).pixels(true))
-            .setY((8).pixels(true))
-            .setWidth((24).pixels())
-            .setHeight(new AspectConstraint())
+            .setX((16).pixels(true)).setY((8).pixels(true))
+            .setWidth((24).pixels()).setHeight(new AspectConstraint())
             .onMouseEnter((comp) => {
                 if (installed) return;
                 animate(comp, (animation) => {
@@ -283,10 +248,8 @@ export function importPreset(presets = undefined) {
 
         let downloadIcon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/" + (installed ? "g-download_done.png" : "g-download.png")))
             .setColor(colorScheme.dark.success.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
-            .setWidth((20).pixels())
-            .setHeight(new AspectConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
+            .setWidth((20).pixels()).setHeight(new AspectConstraint())
             .setChildOf(downloadRectangle);
 
         if (installed) {

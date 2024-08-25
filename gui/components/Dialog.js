@@ -50,60 +50,46 @@ class Dialog {
             .setHeight(new ChildBasedSizeConstraint());
         if (icon) {
             this.#components.icon.container = new UIContainer()
-                .setX((0).pixels())
-                .setY(new SiblingConstraint())
-                .setWidth((100).percent())
-                .setHeight((24).pixels())
+                .setX((0).pixels()).setY(new SiblingConstraint())
+                .setWidth((100).percent()).setHeight((24).pixels())
                 .setChildOf(this.#components.background);
             this.#components.icon.component = UIImage.ofFile(icon)
                 .setColor(colorScheme.light.secondary.color)
-                .setX(new CenterConstraint())
-                .setY((50).percent())
-                .setWidth((16).pixels())
-                .setHeight(new AspectConstraint())
+                .setX(new CenterConstraint()).setY((50).percent())
+                .setWidth((16).pixels()).setHeight(new AspectConstraint())
                 .setChildOf(this.#components.icon.container);
         }
         this.#components.title.container = new UIContainer()
-            .setX((0).pixels())
-            .setY(new SiblingConstraint())
-            .setWidth((100).percent())
-            .setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), icon ? (24).pixels() : (16).pixels()))
+            .setX((0).pixels()).setY(new SiblingConstraint())
+            .setWidth((100).percent()).setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), icon ? (24).pixels() : (16).pixels()))
             .setChildOf(this.#components.background);
         this.#components.title.component = new UIWrappedText("", false, null, icon !== undefined)
             .setColor(colorScheme.light.onSurface.color)
-            .setX(new CenterConstraint())
-            .setY(icon ? new CenterConstraint() : (50).percent())
+            .setX(new CenterConstraint()).setY(icon ? new CenterConstraint() : (50).percent())
             .setWidth((85).percent())
             .setTextScale((1.5).pixels())
             .setChildOf(this.#components.title.container);
 
         this.#components.description.container = new UIContainer()
-            .setX((0).pixels())
-            .setY(new SiblingConstraint())
-            .setWidth((100).percent())
-            .setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels()))
+            .setX((0).pixels()).setY(new SiblingConstraint())
+            .setWidth((100).percent()).setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels()))
             .setChildOf(this.#components.background);
         this.#components.description.component = new UIWrappedText("", false)
             .setColor(colorScheme.light.onSurfaceVariant.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setWidth((85).percent())
             .setChildOf(this.#components.description.container);
 
         this.#components.actions.container = new UIContainer()
-            .setX((0).pixels())
-            .setY(new SiblingConstraint())
-            .setWidth((100).percent())
-            .setHeight((32).pixels())
+            .setX((0).pixels()).setY(new SiblingConstraint())
+            .setWidth((100).percent()).setHeight((32).pixels())
             .setChildOf(this.#components.background);
 
         this.#components.actions.primary = primaryButton
             .setBackgroundColor(colorScheme.light.surfaceContainerHigh.color)
             .setLabelColor(colorScheme.light.primary.color)
-            .setX(new SubtractiveConstraint((0).pixels(true), (8).percent()))
-            .setY(new CenterConstraint())
-            .setWidth((25).percent())
-            .setHeight((20).pixels())
+            .setX(new SubtractiveConstraint((0).pixels(true), (8).percent())).setY(new CenterConstraint())
+            .setWidth((25).percent()).setHeight((20).pixels())
             .setChildOf(this.#components.actions.container);
         this.#components.actions.primary.onMouseEnter(() => {
             this.#components.actions.primary.animateBackgroundColor(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.light.primaryContainer.color))
@@ -116,10 +102,8 @@ class Dialog {
             this.#components.actions.secondary = secondaryButton
                 .setBackgroundColor(colorScheme.light.surfaceContainerHigh.color)
                 .setLabelColor(colorScheme.light.primary.color)
-                .setX(new SubtractiveConstraint((0).pixels(true), (35).percent()))
-                .setY(new CenterConstraint())
-                .setWidth((25).percent())
-                .setHeight((20).pixels())
+                .setX(new SubtractiveConstraint((0).pixels(true), (35).percent())).setY(new CenterConstraint())
+                .setWidth((25).percent()).setHeight((20).pixels())
                 .setChildOf(this.#components.actions.container);
 
             this.#components.actions.secondary.onMouseEnter(() => {
@@ -224,4 +208,4 @@ class Dialog {
     }
 }
 
-export {Dialog};
+export { Dialog };

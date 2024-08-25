@@ -33,31 +33,25 @@ export function mutePlayer(name, duration, manual = false) {
 
     const outline = new UIRoundedRectangle(8)
         .setColor(colorScheme.dark.outline.color)
-        .setX((100).percent())
-        .setY(new SubtractiveConstraint(new SiblingConstraint(2, true), (2).pixels()))
+        .setX((100).percent()).setY(new SubtractiveConstraint(new SiblingConstraint(2, true), (2).pixels()))
         .setWidth((20).percent())
         .setChildOf(hud);
 
     const background = new UIRoundedRectangle(8)
         .setColor(colorScheme.dark.background.color)
-        .setX((0.5).pixels())
-        .setY((0.5).pixels())
-        .setWidth(new SubtractiveConstraint((100).percent(), (1).pixels()))
-        .setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (16).pixels()))
+        .setX((0.5).pixels()).setY((0.5).pixels())
+        .setWidth(new SubtractiveConstraint((100).percent(), (1).pixels())).setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (16).pixels()))
         .setChildOf(outline);
 
     const container = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY((8).pixels())
-        .setWidth((90).percent())
-        .setHeight(new ChildBasedRangeConstraint())
+        .setX(new CenterConstraint()).setY((8).pixels())
+        .setWidth((90).percent()).setHeight(new ChildBasedRangeConstraint())
         .setChildOf(background);
-    let lastText;
+    let lastText = "";
     for(let word of muteFormat) {
         let text = new UIText(word.replace("%player%", name).replace("%time%", timeLength(duration)))
             .setColor(colorScheme.dark.primary.color)
-            .setX(new CramSiblingConstraint())
-            .setY(new CramSiblingConstraint())
+            .setX(new CramSiblingConstraint()).setY(new CramSiblingConstraint())
             .setChildOf(container);
         if(word === "%player% ") {
             text.setColor(colorScheme.dark.tertiary.color);
@@ -71,8 +65,7 @@ export function mutePlayer(name, duration, manual = false) {
 
     new UIText("§lHYJANITOR")
         .setColor(colorScheme.dark.secondaryContainer.color)
-        .setX((4).pixels(true))
-        .setY((2).pixels(true))
+        .setX((4).pixels(true)).setY((2).pixels(true))
         .setTextScale((0.5).pixels())
         .setChildOf(background);
 
@@ -95,31 +88,25 @@ export function unmutePlayer(name, manual = false) {
 
     const outline = new UIRoundedRectangle(8)
         .setColor(colorScheme.dark.outline.color)
-        .setX((100).percent())
-        .setY(new SubtractiveConstraint(new SiblingConstraint(2, true), (2).pixels()))
+        .setX((100).percent()).setY(new SubtractiveConstraint(new SiblingConstraint(2, true), (2).pixels()))
         .setWidth((20).percent())
         .setChildOf(hud);
 
     const background = new UIRoundedRectangle(8)
         .setColor(colorScheme.dark.background.color)
-        .setX((0.5).pixels())
-        .setY((0.5).pixels())
-        .setWidth(new SubtractiveConstraint((100).percent(), (1).pixels()))
-        .setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (16).pixels()))
+        .setX((0.5).pixels()).setY((0.5).pixels())
+        .setWidth(new SubtractiveConstraint((100).percent(), (1).pixels())).setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (16).pixels()))
         .setChildOf(outline);
 
     const container = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY((8).pixels())
-        .setWidth((90).percent())
-        .setHeight(new ChildBasedRangeConstraint())
+        .setX(new CenterConstraint()).setY((8).pixels())
+        .setWidth((90).percent()).setHeight(new ChildBasedRangeConstraint())
         .setChildOf(background);
     let lastText;
     for(let word of unmuteFormat) {
         let text = new UIText(word.replace("%player%", name))
             .setColor(colorScheme.dark.primary.color)
-            .setX(new CramSiblingConstraint())
-            .setY(new CramSiblingConstraint())
+            .setX(new CramSiblingConstraint()).setY(new CramSiblingConstraint())
             .setChildOf(container);
         if(word === "%player% ") {
             text.setColor(colorScheme.dark.warn.color);
@@ -133,8 +120,7 @@ export function unmutePlayer(name, manual = false) {
 
     new UIText("§lHYJANITOR")
         .setColor(colorScheme.dark.secondaryContainer.color)
-        .setX((4).pixels(true))
-        .setY((2).pixels(true))
+        .setX((4).pixels(true)).setY((2).pixels(true))
         .setTextScale((0.5).pixels())
         .setChildOf(background);
 

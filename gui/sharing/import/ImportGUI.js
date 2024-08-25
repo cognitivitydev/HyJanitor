@@ -41,26 +41,20 @@ let window;
 
 export function openImports() {
     window = new UIBlock()
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth(new FillConstraint())
-        .setHeight(new FillConstraint())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth(new FillConstraint()).setHeight(new FillConstraint())
         .setColor(new Color(0, 0, 0, 0));
 
     const background = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth((80).percent())
-        .setHeight((70).percent())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth((80).percent()).setHeight((70).percent())
         .setChildOf(window);
 
     UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-arrow_back.png"))
         .setColor(colorScheme.dark.primary.color)
-        .setX((12).pixels())
-        .setY((12).pixels())
-        .setWidth((25).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((12).pixels()).setY((12).pixels())
+        .setWidth((25).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.inversePrimary.color));
@@ -78,16 +72,13 @@ export function openImports() {
 
     new UIText("Import Ruleset...", false)
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((2).pixels())
         .setChildOf(background);
 
     const container = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth((70).percent())
-        .setHeight(new ChildBasedSizeConstraint())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth((70).percent()).setHeight(new ChildBasedSizeConstraint())
         .setChildOf(background);
 
     for (let i in options) {
@@ -97,10 +88,8 @@ export function openImports() {
             .setText(option.title, 1.5, false)
             .setBackgroundColor(colorScheme.dark.surfaceContainer.color)
             .setLabelColor(colorScheme.dark.secondary.color)
-            .setX(new CenterConstraint())
-            .setY(new SiblingConstraint(8))
-            .setWidth((100).percent())
-            .setHeight((40).pixels())
+            .setX(new CenterConstraint()).setY(new SiblingConstraint(8))
+            .setWidth((100).percent()).setHeight((40).pixels())
             .setIconSize((24).pixels())
             .onMouseEnter((button) => {
                 button.animateBackgroundColor(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.surfaceContainerHigh.color));

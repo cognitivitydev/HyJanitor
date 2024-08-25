@@ -36,26 +36,20 @@ let timers = [];
 
 export function openMutes() {
     const window = new UIBlock()
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth(new FillConstraint())
-        .setHeight(new FillConstraint())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth(new FillConstraint()).setHeight(new FillConstraint())
         .setColor(new Color(0, 0, 0, 0));
 
     const background = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new SubtractiveConstraint((100).percent(), (50).pixels()))
-        .setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new SubtractiveConstraint((100).percent(), (50).pixels())).setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
         .setChildOf(window);
 
     UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-arrow_back.png"))
         .setColor(colorScheme.dark.primary.color)
-        .setX((12).pixels())
-        .setY((12).pixels())
-        .setWidth((25).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((12).pixels()).setY((12).pixels())
+        .setWidth((25).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.inversePrimary.color));
@@ -73,32 +67,26 @@ export function openMutes() {
 
     new UIText("§lHyJanitor")
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((3).pixels())
         .setChildOf(background);
 
     new UIText("Muted Players", false)
         .setColor(colorScheme.dark.inverseOnSurface.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((5).percent(), (30).pixels()))
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((5).percent(), (30).pixels()))
         .setTextScale((2).pixels())
         .setChildOf(background);
 
     const mainRectangle = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surfaceContainerLow.color)
-        .setX(new CenterConstraint())
-        .setY((20).percent())
-        .setWidth((90).percent())
-        .setHeight((75).percent())
+        .setX(new CenterConstraint()).setY((20).percent())
+        .setWidth((90).percent()).setHeight((75).percent())
         .setChildOf(background);
 
     const autoMuteBackground = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.warnContainer.color)
-        .setX((2.5).percent())
-        .setY((4).percent())
-        .setWidth((30).percent())
-        .setHeight((30).pixels())
+        .setX((2.5).percent()).setY((4).percent())
+        .setWidth((30).percent()).setHeight((30).pixels())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onWarn.color));
@@ -122,8 +110,7 @@ export function openMutes() {
 
     const autoMuteText = new UIText("", false)
         .setColor(colorScheme.dark.onWarnContainer.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
         .setTextScale((1.5).pixels())
         .setChildOf(autoMuteBackground);
 
@@ -136,25 +123,20 @@ export function openMutes() {
 
     const totalMutesBackground = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.secondaryContainer.color)
-        .setX((35).percent())
-        .setY((4).percent())
-        .setWidth((30).percent())
-        .setHeight((30).pixels())
+        .setX((35).percent()).setY((4).percent())
+        .setWidth((30).percent()).setHeight((30).pixels())
         .setChildOf(mainRectangle);
 
     const totalMutesText = new UIText("Muted Players: "+Settings.mutedPlayers.length, false)
         .setColor(colorScheme.dark.secondary.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
         .setTextScale((1.5).pixels())
         .setChildOf(totalMutesBackground);
 
     const mutePlayerBackground = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.onError.color)
-        .setX((67.5).percent())
-        .setY((4).percent())
-        .setWidth((30).percent())
-        .setHeight((30).pixels())
+        .setX((67.5).percent()).setY((4).percent())
+        .setWidth((30).percent()).setHeight((30).pixels())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.errorContainer.color));
@@ -172,23 +154,18 @@ export function openMutes() {
 
     const mutePlayerText = new UIText("Mute Player...", false)
         .setColor(colorScheme.dark.error.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
         .setTextScale((1.5).pixels())
         .setChildOf(mutePlayerBackground);
 
     const container = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((5).percent(), (30).pixels()))
-        .setWidth((90).percent())
-        .setHeight((80).percent())
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((5).percent(), (30).pixels()))
+        .setWidth((90).percent()).setHeight((80).percent())
         .setChildOf(mainRectangle);
 
     const scroll = new ScrollComponent()
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth((100).percent())
-        .setHeight((100).percent())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth((100).percent()).setHeight((100).percent())
         .setChildOf(container);
 
     const slider = new UIBlock()
@@ -207,23 +184,19 @@ export function openMutes() {
 
         let mutedRectangle = new UIRoundedRectangle(10)
             .setColor(colorScheme.dark.surfaceContainerHigh.color)
-            .setX((0).pixels())
-            .setY(new SiblingConstraint(10))
-            .setWidth(new SubtractiveConstraint((100).percent(), (4).pixels()))
-            .setHeight((15).percent())
+            .setX((0).pixels()).setY(new SiblingConstraint(10))
+            .setWidth(new SubtractiveConstraint((100).percent(), (4).pixels())).setHeight((15).percent())
             .setChildOf(scroll);
 
         new UIText(player.name)
             .setColor(colorScheme.dark.surfaceTint.color)
-            .setX((5).percent())
-            .setY(new CenterConstraint())
+            .setX((5).percent()).setY(new CenterConstraint())
             .setTextScale((1.5).pixels())
             .setChildOf(mutedRectangle);
 
         let timer = new UIText(timeLength(player.expires-Date.now()))
             .setColor(colorScheme.dark.onWarnContainer.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setTextScale((1.5).pixels())
             .setChildOf(mutedRectangle);
         timers.push({container: mutedRectangle, component: timer, expires: player.expires});
@@ -232,10 +205,8 @@ export function openMutes() {
             .setText("Unmute", 1.5, false)
             .setBackgroundColor(colorScheme.dark.surfaceDim.color)
             .setLabelColor(colorScheme.dark.onSurfaceVariant.color)
-            .setX((80).percent())
-            .setY(new CenterConstraint())
-            .setWidth((15).percent())
-            .setHeight((30).pixels())
+            .setX((80).percent()).setY(new CenterConstraint())
+            .setWidth((15).percent()).setHeight((30).pixels())
             .onMouseEnter((button) => {
                 button.animateBackgroundColor(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.surfaceBright.color));
                 button.animateLabelColor(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onSurface.color));
@@ -253,26 +224,20 @@ export function openMutes() {
 
     const muteWindow = new UIBlock()
         .setColor(new Color(0, 0, 0, 0.5))
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth((100).percent())
-        .setHeight((100).percent())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth((100).percent()).setHeight((100).percent())
         .setChildOf(window);
 
     const muteBackground = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth((60).percent())
-        .setHeight((45).percent())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth((60).percent()).setHeight((45).percent())
         .setChildOf(muteWindow);
 
     const closeMute = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-close.png"))
         .setColor(colorScheme.dark.inversePrimary.color)
-        .setX((16).pixels())
-        .setY((8).pixels())
-        .setWidth((24).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((16).pixels()).setY((8).pixels())
+        .setWidth((24).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.primary.color));
@@ -290,25 +255,20 @@ export function openMutes() {
 
     new UIText("Mute Player")
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((1.5).pixels())
         .setChildOf(muteBackground);
 
     const nameInputOutline = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.outline.color)
-        .setX(new SubtractiveConstraint(new CenterConstraint(), (22.5).percent()))
-        .setY((20).percent())
-        .setWidth((40).percent())
-        .setHeight((25).pixels())
+        .setX(new SubtractiveConstraint(new CenterConstraint(), (22.5).percent())).setY((20).percent())
+        .setWidth((40).percent()).setHeight((25).pixels())
         .setChildOf(muteBackground);
 
     const nameInputRectangle = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels()))
-        .setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels())).setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
         .onMouseClick(() => {
             nameInputText.grabWindowFocus();
         })
@@ -316,16 +276,13 @@ export function openMutes() {
 
     const nameInputLabelBackground = new UIBlock()
         .setColor(colorScheme.dark.surface.color)
-        .setX((16).pixels())
-        .setY((-2).pixels())
-        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels()))
-        .setHeight(new ChildBasedSizeConstraint())
+        .setX((16).pixels()).setY((-2).pixels())
+        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels())).setHeight(new ChildBasedSizeConstraint())
         .setChildOf(nameInputOutline);
 
     new UIText("Username")
         .setColor(colorScheme.dark.onSurfaceVariant.color)
-        .setX((2).pixels())
-        .setY((0).pixels())
+        .setX((2).pixels()).setY((0).pixels())
         .setChildOf(nameInputLabelBackground);
 
     const nameInputText = new UITextInput()
@@ -334,16 +291,13 @@ export function openMutes() {
         .setChildOf(nameInputRectangle);
     nameInputText.setX((8).pixels())
         .setY(new AdditiveConstraint(new CenterConstraint(), (2).pixels()))
-        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels()))
-        .setHeight((15).pixels());
+        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels())).setHeight((15).pixels());
 
     let mutePlayerButton = new Button()
         .setText("Mute Player", 1.5, false)
         .setColor("success", true)
-        .setX(new SubtractiveConstraint(new CenterConstraint(), (22.5).percent()))
-        .setY(new AdditiveConstraint((20).percent(), (45).pixels()))
-        .setWidth((25).percent())
-        .setHeight((30).pixels())
+        .setX(new SubtractiveConstraint(new CenterConstraint(), (22.5).percent())).setY(new AdditiveConstraint((20).percent(), (45).pixels()))
+        .setWidth((25).percent()).setHeight((30).pixels())
         .onMouseEnter(() => {
             let valid = true;
             let input = timeInputText.getText().trim();
@@ -391,18 +345,14 @@ export function openMutes() {
 
     const timeInputOutline = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.outline.color)
-        .setX(new AdditiveConstraint(new CenterConstraint(), (22.5).percent()))
-        .setY((20).percent())
-        .setWidth((40).percent())
-        .setHeight((25).pixels())
+        .setX(new AdditiveConstraint(new CenterConstraint(), (22.5).percent())).setY((20).percent())
+        .setWidth((40).percent()).setHeight((25).pixels())
         .setChildOf(muteBackground);
 
     const timeInputRectangle = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels()))
-        .setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels())).setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
         .onMouseClick(() => {
             timeInputText.grabWindowFocus();
         })
@@ -410,16 +360,13 @@ export function openMutes() {
 
     const timeInputLabelBackground = new UIBlock()
         .setColor(colorScheme.dark.surface.color)
-        .setX((16).pixels())
-        .setY((-2).pixels())
-        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels()))
-        .setHeight(new ChildBasedSizeConstraint())
+        .setX((16).pixels()).setY((-2).pixels())
+        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels())).setHeight(new ChildBasedSizeConstraint())
         .setChildOf(timeInputOutline);
 
     new UIText("Duration")
         .setColor(colorScheme.dark.onSurfaceVariant.color)
-        .setX((2).pixels())
-        .setY((0).pixels())
+        .setX((2).pixels()).setY((0).pixels())
         .setChildOf(timeInputLabelBackground);
 
     const timeInputText = new UITextInput()
@@ -449,28 +396,23 @@ export function openMutes() {
     timeInputText.setText(timeLength(Settings.automaticMuteDuration));
     timeInputText.setX((8).pixels())
         .setY(new AdditiveConstraint(new CenterConstraint(), (2).pixels()))
-        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels()))
-        .setHeight((15).pixels());
+        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels())).setHeight((15).pixels());
 
     const timeValidIcon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-check.png"))
         .setColor(colorScheme.dark.success.color)
-        .setX(new AdditiveConstraint((100).percent(), (8).pixels()))
-        .setY(new CenterConstraint())
-        .setWidth((19).pixels())
-        .setHeight(new AspectConstraint())
+        .setX(new AdditiveConstraint((100).percent(), (8).pixels())).setY(new CenterConstraint())
+        .setWidth((19).pixels()).setHeight(new AspectConstraint())
         .setChildOf(timeInputOutline);
 
     const timeErrorTitle = new UIText("Invalid Format!")
         .setColor(colorScheme.dark.error.color)
-        .setX(new AdditiveConstraint(new CenterConstraint(), (22.5).percent()))
-        .setY(new AdditiveConstraint((20).percent(), (45).pixels()))
+        .setX(new AdditiveConstraint(new CenterConstraint(), (22.5).percent())).setY(new AdditiveConstraint((20).percent(), (45).pixels()))
         .setTextScale((1.5).pixels())
         .setChildOf(muteBackground);
 
     const timeErrorDescription = new UIText("Durations: ms, s, m, h, d, w, mo, y")
         .setColor(colorScheme.dark.error.color)
-        .setX(new AdditiveConstraint(new CenterConstraint(), (22.5).percent()))
-        .setY(new AdditiveConstraint((20).percent(), (60).pixels()))
+        .setX(new AdditiveConstraint(new CenterConstraint(), (22.5).percent())).setY(new AdditiveConstraint((20).percent(), (60).pixels()))
         .setChildOf(muteBackground);
 
     timeErrorTitle.hide(true);
@@ -479,20 +421,16 @@ export function openMutes() {
     const suggestions = ["5m", "15m", "30m", "1h", "3h", "6h", "12h", "1d", "3d", "1w"];
 
     const suggestionContainer = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY((60).percent())
-        .setWidth((75).percent())
-        .setHeight((30).percent())
+        .setX(new CenterConstraint()).setY((60).percent())
+        .setWidth((75).percent()).setHeight((30).percent())
         .setChildOf(muteBackground);
 
     for(let i in suggestions) {
         let suggestion = suggestions[i];
         let suggestionRectangle = new UIRoundedRectangle(5)
             .setColor(colorScheme.dark.warnContainer.color)
-            .setX(new AdditiveConstraint(new CramSiblingConstraint(16), (8).pixels()))
-            .setY(new CramSiblingConstraint(4))
-            .setWidth(new SubtractiveConstraint((20).percent(), (24).pixels()))
-            .setHeight(new SubtractiveConstraint((50).percent(), (4).pixels()))
+            .setX(new AdditiveConstraint(new CramSiblingConstraint(16), (8).pixels())).setY(new CramSiblingConstraint(4))
+            .setWidth(new SubtractiveConstraint((20).percent(), (24).pixels())).setHeight(new SubtractiveConstraint((50).percent(), (4).pixels()))
             .onMouseEnter(() => {
                 animate(suggestionText, (animation) => {
                     animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onWarnContainer.color));
@@ -515,8 +453,7 @@ export function openMutes() {
 
         let suggestionText = new UIText(suggestion)
             .setColor(colorScheme.dark.warn.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setTextScale((1.5).pixels())
             .setChildOf(suggestionRectangle);
     }
@@ -526,10 +463,8 @@ export function openMutes() {
     if(Settings.muteTutorial) {
         const tutorialWindow = new UIBlock()
             .setColor(new Color(0, 0, 0, 0.5))
-            .setX((0).pixels())
-            .setY((0).pixels())
-            .setWidth((100).percent())
-            .setHeight((100).percent())
+            .setX((0).pixels()).setY((0).pixels())
+            .setWidth((100).percent()).setHeight((100).percent())
             .setChildOf(window);
 
         const tutorialConfirm = new Button()
@@ -538,8 +473,7 @@ export function openMutes() {
         new Dialog(tutorialConfirm)
             .setTitle("Player Mutes", 1, false)
             .setDescription("You can mute players either manually or automatically. You can enable or disable automatic mutes in settings, as well as notifications for when players are muted or unmuted. Mutes currently only apply to Hypixel's chat format.", 1, false)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setWidth((30).percent())
             .onPrimaryClick(() => {
                 Settings.muteTutorial = false;
@@ -550,26 +484,20 @@ export function openMutes() {
 
     const muteDurationWindow = new UIBlock()
         .setColor(new Color(0, 0, 0, 0.5))
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth((100).percent())
-        .setHeight((100).percent())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth((100).percent()).setHeight((100).percent())
         .setChildOf(window);
 
     const muteDurationBackground = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth((60).percent())
-        .setHeight((45).percent())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth((60).percent()).setHeight((45).percent())
         .setChildOf(muteDurationWindow);
 
     const closeMuteDuration = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-close.png"))
         .setColor(colorScheme.dark.primary.color)
-        .setX((16).pixels())
-        .setY((8).pixels())
-        .setWidth((24).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((16).pixels()).setY((8).pixels())
+        .setWidth((24).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onPrimary.color));
@@ -587,25 +515,20 @@ export function openMutes() {
 
     new UIText("Edit Mute Duration")
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((1.5).pixels())
         .setChildOf(muteDurationBackground);
 
     const inputOutline = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.outline.color)
-        .setX(new CenterConstraint())
-        .setY((15).percent())
-        .setWidth((40).percent())
-        .setHeight((25).pixels())
+        .setX(new CenterConstraint()).setY((15).percent())
+        .setWidth((40).percent()).setHeight((25).pixels())
         .setChildOf(muteDurationBackground);
 
     const inputRectangle = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels()))
-        .setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels())).setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
         .onMouseClick(() => {
             inputText.grabWindowFocus();
         })
@@ -613,16 +536,13 @@ export function openMutes() {
 
     const inputLabelBackground = new UIBlock()
         .setColor(colorScheme.dark.surface.color)
-        .setX((16).pixels())
-        .setY((-2).pixels())
-        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels()))
-        .setHeight(new ChildBasedSizeConstraint())
+        .setX((16).pixels()).setY((-2).pixels())
+        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels())).setHeight(new ChildBasedSizeConstraint())
         .setChildOf(inputOutline);
 
     new UIText("Duration")
         .setColor(colorScheme.dark.onSurfaceVariant.color)
-        .setX((2).pixels())
-        .setY((0).pixels())
+        .setX((2).pixels()).setY((0).pixels())
         .setChildOf(inputLabelBackground);
 
     const inputText = new UITextInput()
@@ -656,40 +576,33 @@ export function openMutes() {
     inputText.setText(timeLength(Settings.automaticMuteDuration));
     inputText.setX((8).pixels())
         .setY(new AdditiveConstraint(new CenterConstraint(), (2).pixels()))
-        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels()))
-        .setHeight((15).pixels());
+        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels())).setHeight((15).pixels());
 
     const errorTitle = new UIText("Invalid Format!")
         .setColor(colorScheme.dark.error.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((15).percent(), (45).pixels()))
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((15).percent(), (45).pixels()))
         .setTextScale((1.5).pixels())
         .setChildOf(muteDurationBackground);
 
     const errorDescription = new UIText("Durations: ms, s, m, h, d, w, mo, y")
         .setColor(colorScheme.dark.error.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((15).percent(), (60).pixels()))
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((15).percent(), (60).pixels()))
         .setChildOf(muteDurationBackground);
 
     errorTitle.hide(true);
     errorDescription.hide(true);
 
     const durationSuggestionContainer = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY((50).percent())
-        .setWidth((75).percent())
-        .setHeight((30).percent())
+        .setX(new CenterConstraint()).setY((50).percent())
+        .setWidth((75).percent()).setHeight((30).percent())
         .setChildOf(muteDurationBackground);
 
     for(let i in suggestions) {
         let suggestion = suggestions[i];
         let suggestionRectangle = new UIRoundedRectangle(5)
             .setColor(colorScheme.dark.warnContainer.color)
-            .setX(new AdditiveConstraint(new CramSiblingConstraint(16), (8).pixels()))
-            .setY(new CramSiblingConstraint(4))
-            .setWidth(new SubtractiveConstraint((20).percent(), (24).pixels()))
-            .setHeight(new SubtractiveConstraint((50).percent(), (4).pixels()))
+            .setX(new AdditiveConstraint(new CramSiblingConstraint(16), (8).pixels())).setY(new CramSiblingConstraint(4))
+            .setWidth(new SubtractiveConstraint((20).percent(), (24).pixels())).setHeight(new SubtractiveConstraint((50).percent(), (4).pixels()))
             .onMouseEnter(() => {
                 animate(suggestionText, (animation) => {
                     animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onWarnContainer.color));
@@ -717,18 +630,15 @@ export function openMutes() {
 
         let suggestionText = new UIText(suggestion)
             .setColor(colorScheme.dark.warn.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setTextScale((1.5).pixels())
             .setChildOf(suggestionRectangle);
     }
 
     const automaticMuteContainer = new UIRoundedRectangle(8)
         .setColor(colorScheme.dark.surfaceContainer.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint(new CenterConstraint(), (40).percent()))
-        .setWidth(new ChildBasedSizeConstraint(32))
-        .setHeight((30).pixels())
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint(new CenterConstraint(), (40).percent()))
+        .setWidth(new ChildBasedSizeConstraint(32)).setHeight((30).pixels())
         .onMouseClick(() => {
             button.setSelected(!button.isSelected());
             Settings.isAutomaticallyMuting = button.isSelected();
@@ -742,16 +652,13 @@ export function openMutes() {
         .setChildOf(muteDurationBackground);
 
     const button = new Switch(Settings.isAutomaticallyMuting)
-        .setX((16).pixels())
-        .setY(new CenterConstraint())
-        .setWidth((39).pixels())
-        .setHeight((18).pixels())
+        .setX((16).pixels()).setY(new CenterConstraint())
+        .setWidth((39).pixels()).setHeight((18).pixels())
         .setChildOf(automaticMuteContainer);
 
     new UIText("Automatic Mutes")
         .setColor(colorScheme.dark.onSurfaceVariant.color)
-        .setX(new SiblingConstraint(8))
-        .setY(new CenterConstraint())
+        .setX(new SiblingConstraint(8)).setY(new CenterConstraint())
         .setTextScale((1.5).pixels())
         .setChildOf(automaticMuteContainer);
 

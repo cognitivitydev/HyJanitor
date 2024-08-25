@@ -138,35 +138,27 @@ const settings = [
 
 const muteWindow = new UIBlock()
     .setColor(new Color(0, 0, 0, 0.5))
-    .setX((0).pixels())
-    .setY((0).pixels())
-    .setWidth((100).percent())
-    .setHeight((100).percent());
+    .setX((0).pixels()).setY((0).pixels())
+    .setWidth((100).percent()).setHeight((100).percent());
 
 export function openSettings() {
     muteWindow.clearChildren();
 
     const window = new UIBlock()
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth(new FillConstraint())
-        .setHeight(new FillConstraint())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth(new FillConstraint()).setHeight(new FillConstraint())
         .setColor(new Color(0, 0, 0, 0));
 
     const background = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new SubtractiveConstraint((100).percent(), (50).pixels()))
-        .setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new SubtractiveConstraint((100).percent(), (50).pixels())).setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
         .setChildOf(window);
 
     UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-arrow_back.png"))
         .setColor(colorScheme.dark.primary.color)
-        .setX((12).pixels())
-        .setY((12).pixels())
-        .setWidth((25).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((12).pixels()).setY((12).pixels())
+        .setWidth((25).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.inversePrimary.color));
@@ -184,24 +176,20 @@ export function openSettings() {
 
     new UIText("§lHyJanitor")
         .setColor(colorScheme.dark.primary.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((3).pixels())
         .setChildOf(background);
 
     new UIText("Settings", false)
         .setColor(colorScheme.dark.inverseOnSurface.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((5).percent(), (30).pixels()))
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((5).percent(), (30).pixels()))
         .setTextScale((2).pixels())
         .setChildOf(background);
 
     const updateRectangle = new UIRoundedRectangle(10)
         .setColor(updates.CHECKING.backgroundColor)
-        .setX((5).percent())
-        .setY((3.5).percent())
-        .setWidth((33).percent())
-        .setHeight((14).percent())
+        .setX((5).percent()).setY((3.5).percent())
+        .setWidth((33).percent()).setHeight((14).percent())
         .onMouseClick(() => {
             Desktop.getDesktop().browse(new URI("https://github.com/cognitivitydev/HyJanitor/tree/main"));
         })
@@ -209,40 +197,31 @@ export function openSettings() {
 
     const updateTitle = new UIText(updates.CHECKING.title, false)
         .setColor(updates.CHECKING.titleColor)
-        .setX(new CenterConstraint())
-        .setY((20).percent())
+        .setX(new CenterConstraint()).setY((20).percent())
         .setTextScale((1.5).pixels())
         .setChildOf(updateRectangle);
 
     const updateDescription = new UIWrappedText(updates.CHECKING.description.replace("%current%", "v"+Settings.version), false, null, true)
         .setColor(updates.CHECKING.descriptionColor)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint(new SiblingConstraint(), (8).pixels()))
-        .setWidth((90).percent())
-        .setHeight(new FillConstraint())
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint(new SiblingConstraint(), (8).pixels()))
+        .setWidth((90).percent()).setHeight(new FillConstraint())
         .setTextScale((1.5).pixels())
         .setChildOf(updateRectangle);
 
     const mainRectangle = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surfaceContainer.color)
-        .setX(new CenterConstraint())
-        .setY((20).percent())
-        .setWidth((90).percent())
-        .setHeight((75).percent())
+        .setX(new CenterConstraint()).setY((20).percent())
+        .setWidth((90).percent()).setHeight((75).percent())
         .setChildOf(background);
 
     const scrollContainer = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY((8).pixels())
-        .setWidth((100).percent())
-        .setHeight(new SubtractiveConstraint((100).percent(), (64).pixels()))
+        .setX(new CenterConstraint()).setY((8).pixels())
+        .setWidth((100).percent()).setHeight(new SubtractiveConstraint((100).percent(), (64).pixels()))
         .setChildOf(mainRectangle);
 
     const settingsContainer = new ScrollComponent()
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new SubtractiveConstraint((100).percent(), (16).pixels()))
-        .setHeight((100).percent())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new SubtractiveConstraint((100).percent(), (16).pixels())).setHeight((100).percent())
         .setChildOf(scrollContainer);
 
     const slider = new UIBlock()
@@ -255,70 +234,54 @@ export function openSettings() {
 
     settings.forEach(setting => {
         let container = new UIContainer()
-            .setX(new CenterConstraint())
-            .setY(new CramSiblingConstraint(12))
-            .setWidth((100).percent())
-            .setHeight((25).percent())
+            .setX(new CenterConstraint()).setY(new CramSiblingConstraint(12))
+            .setWidth((100).percent()).setHeight((25).percent())
             .setChildOf(settingsContainer);
 
         let rectangle = new UIRoundedRectangle(15)
             .setColor(colorScheme.dark.surfaceContainerHigh.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
-            .setWidth((80).percent())
-            .setHeight((100).percent())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
+            .setWidth((80).percent()).setHeight((100).percent())
             .setChildOf(container);
 
         let iconContainer = new UIContainer()
-            .setX((0).pixels())
-            .setY((0).pixels())
-            .setWidth(new AspectConstraint())
-            .setHeight((100).percent())
+            .setX((0).pixels()).setY((0).pixels())
+            .setWidth(new AspectConstraint()).setHeight((100).percent())
             .setChildOf(rectangle);
 
         let icon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/"+setting.icon))
             .setColor(colorScheme.dark.surfaceTint.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
-            .setWidth(new AspectConstraint())
-            .setHeight((50).percent())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
+            .setWidth(new AspectConstraint()).setHeight((50).percent())
             .setChildOf(iconContainer);
 
         let textContainer = new UIContainer()
-            .setX(new SiblingConstraint())
-            .setY(new CenterConstraint())
-            .setWidth(new FillConstraint())
-            .setHeight(new ChildBasedSizeConstraint())
+            .setX(new SiblingConstraint()).setY(new CenterConstraint())
+            .setWidth(new FillConstraint()).setHeight(new ChildBasedSizeConstraint())
             .setChildOf(rectangle);
 
         let title = new UIText(setting.name, false)
             .setColor(colorScheme.dark.onSurface.color)
-            .setX((0).pixels())
-            .setY((0).pixels())
+            .setX((0).pixels()).setY((0).pixels())
             .setTextScale((2).pixels())
             .setChildOf(textContainer);
 
         let description = new UIWrappedText(setting.description, false, null, false, true, 9, "...")
             .setColor(colorScheme.dark.onSurfaceVariant.color)
-            .setX((0).pixels())
-            .setY(new SiblingConstraint(2))
+            .setX((0).pixels()).setY(new SiblingConstraint(2))
             .setWidth((100).percent())
             .setTextScale((1.5).pixels())
             .setChildOf(textContainer);
 
         let buttonContainer = new UIContainer()
-            .setX((0).pixels(true))
-            .setY((0).pixels())
-            .setWidth((15).percent())
-            .setHeight((100).percent())
+            .setX((0).pixels(true)).setY((0).pixels())
+            .setWidth((15).percent()).setHeight((100).percent())
             .setChildOf(rectangle);
 
         if(typeof setting.value === "string") {
             new Switch(Settings[setting.value])
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
-                .setWidth((54).pixels())
-                .setHeight((24).pixels())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
+                .setWidth((54).pixels()).setHeight((24).pixels())
                 .onButtonClick((button, status) => {
                     Settings[setting.value] = status;
                 })
@@ -328,10 +291,8 @@ export function openSettings() {
                 .setText(setting.buttonLabel, 1.5, false)
                 .setBackgroundColor(colorScheme.dark.primaryContainer.color)
                 .setLabelColor(colorScheme.dark.primary.color)
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
-                .setWidth((80).percent())
-                .setHeight((30).pixels())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
+                .setWidth((80).percent()).setHeight((30).pixels())
                 .onMouseEnter((button) => {
                     button.animateBackgroundColor(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onPrimary.color));
                 })
@@ -347,10 +308,8 @@ export function openSettings() {
     let githubButton = new Button(new File("./config/ChatTriggers/modules/HyJanitor/icons/github-mark_white.png"))
         .setText("GitHub", 1.5, false)
         .setBackgroundColor(new Color(24/255, 20/255, 20/255))
-        .setX(new SubtractiveConstraint(new CenterConstraint(), (12).percent()))
-        .setY((8).pixels(true))
-        .setWidth((18).percent())
-        .setHeight((40).pixels())
+        .setX(new SubtractiveConstraint(new CenterConstraint(), (12).percent())).setY((8).pixels(true))
+        .setWidth((18).percent()).setHeight((40).pixels())
         .setIconSize((24).pixels())
         .onMouseEnter((button) => {
             button.setText("§nGitHub");
@@ -367,10 +326,8 @@ export function openSettings() {
     let discordButton = new Button(new File("./config/ChatTriggers/modules/HyJanitor/icons/discord-mark_white.png"))
         .setText("Discord", 1.5, false)
         .setBackgroundColor(new Color(88/255, 101/255, 242/255))
-        .setX(new AdditiveConstraint(new CenterConstraint(), (12).percent()))
-        .setY((8).pixels(true))
-        .setWidth((18).percent())
-        .setHeight((40).pixels())
+        .setX(new AdditiveConstraint(new CenterConstraint(), (12).percent())).setY((8).pixels(true))
+        .setWidth((18).percent()).setHeight((40).pixels())
         .setIconSize((24).pixels())
         .onMouseEnter((button) => {
             button.setText("§nDiscord");
@@ -385,26 +342,21 @@ export function openSettings() {
 
     new UIText("Made by cognitivity", false)
         .setColor(colorScheme.dark.inverseOnSurface.color)
-        .setX((new CenterConstraint()))
-        .setY((8).pixels(true))
+        .setX((new CenterConstraint())).setY((8).pixels(true))
         .setChildOf(background);
 
     muteWindow.setChildOf(window);
 
     const muteBackground = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth((60).percent())
-        .setHeight((45).percent())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth((60).percent()).setHeight((45).percent())
         .setChildOf(muteWindow);
 
     const closeMute = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-close.png"))
         .setColor(colorScheme.dark.primary.color)
-        .setX((16).pixels())
-        .setY((8).pixels())
-        .setWidth((24).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((16).pixels()).setY((8).pixels())
+        .setWidth((24).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onPrimary.color));
@@ -422,25 +374,20 @@ export function openSettings() {
 
     new UIText("Edit Mute Duration")
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((1.5).pixels())
         .setChildOf(muteBackground);
 
     const inputOutline = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.outline.color)
-        .setX(new CenterConstraint())
-        .setY((20).percent())
-        .setWidth((40).percent())
-        .setHeight((25).pixels())
+        .setX(new CenterConstraint()).setY((20).percent())
+        .setWidth((40).percent()).setHeight((25).pixels())
         .setChildOf(muteBackground);
 
     const inputRectangle = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels()))
-        .setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels())).setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
         .onMouseClick(() => {
             inputText.grabWindowFocus();
         })
@@ -448,16 +395,13 @@ export function openSettings() {
 
     const inputLabelBackground = new UIBlock()
         .setColor(colorScheme.dark.surface.color)
-        .setX((16).pixels())
-        .setY((-2).pixels())
-        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels()))
-        .setHeight(new ChildBasedSizeConstraint())
+        .setX((16).pixels()).setY((-2).pixels())
+        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels())).setHeight(new ChildBasedSizeConstraint())
         .setChildOf(inputOutline);
 
     new UIText("Duration")
         .setColor(colorScheme.dark.onSurfaceVariant.color)
-        .setX((2).pixels())
-        .setY((0).pixels())
+        .setX((2).pixels()).setY((0).pixels())
         .setChildOf(inputLabelBackground);
 
     const inputText = new UITextInput()
@@ -485,21 +429,18 @@ export function openSettings() {
     inputText.setText(timeLength(Settings.automaticMuteDuration));
     inputText.setX((8).pixels())
         .setY(new AdditiveConstraint(new CenterConstraint(), (2).pixels()))
-        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels()))
-        .setHeight((15).pixels());
+        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels())).setHeight((15).pixels());
 
 
     const errorTitle = new UIText("Invalid Format!")
         .setColor(colorScheme.dark.error.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((20).percent(), (45).pixels()))
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((20).percent(), (45).pixels()))
         .setTextScale((1.5).pixels())
         .setChildOf(muteBackground);
 
     const errorDescription = new UIText("Durations: ms, s, m, h, d, w, mo, y")
         .setColor(colorScheme.dark.error.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((20).percent(), (60).pixels()))
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((20).percent(), (60).pixels()))
         .setChildOf(muteBackground);
 
     errorTitle.hide(true);
@@ -508,20 +449,16 @@ export function openSettings() {
     const suggestions = ["5m", "15m", "30m", "1h", "3h", "6h", "12h", "1d", "3d", "1w"];
 
     const suggestionContainer = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY((60).percent())
-        .setWidth((75).percent())
-        .setHeight((30).percent())
+        .setX(new CenterConstraint()).setY((60).percent())
+        .setWidth((75).percent()).setHeight((30).percent())
         .setChildOf(muteBackground);
 
     for(let i in suggestions) {
         let suggestion = suggestions[i];
         let suggestionRectangle = new UIRoundedRectangle(5)
             .setColor(colorScheme.dark.warnContainer.color)
-            .setX(new AdditiveConstraint(new CramSiblingConstraint(16), (8).pixels()))
-            .setY(new CramSiblingConstraint(4))
-            .setWidth(new SubtractiveConstraint((20).percent(), (24).pixels()))
-            .setHeight(new SubtractiveConstraint((50).percent(), (4).pixels()))
+            .setX(new AdditiveConstraint(new CramSiblingConstraint(16), (8).pixels())).setY(new CramSiblingConstraint(4))
+            .setWidth(new SubtractiveConstraint((20).percent(), (24).pixels())).setHeight(new SubtractiveConstraint((50).percent(), (4).pixels()))
             .onMouseEnter(() => {
                 animate(suggestionText, (animation) => {
                     animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onWarnContainer.color));
@@ -544,8 +481,7 @@ export function openSettings() {
 
         let suggestionText = new UIText(suggestion)
             .setColor(colorScheme.dark.warn.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setTextScale((1.5).pixels())
             .setChildOf(suggestionRectangle);
     }
@@ -562,22 +498,22 @@ export function openSettings() {
 
     new Thread(() => {
         let update = checkForUpdates();
-        let status = undefined;
+        let status;
         let latest = undefined;
         if(!update.latest.git || !update.latest.ct) {
             status = updates.ERROR;
-        } else if(update.current == update.latest.git) {
+        } else if(update.current === update.latest.git) {
             status = updates.LATEST;
             latest = update.current;
-        } else if(update.current == update.latest.ct) {
-            if(ct != git) {
+        } else if(update.current === update.latest.ct) {
+            if(ct !== git) {
                 status = updates.GITHUB;
                 latest = update.latest.git;
             } else {
                 status = updates.LATEST;
                 latest = update.current;
             }
-        } else if(update.latest.git != update.latest.ct) {
+        } else if(update.latest.git !== update.latest.ct) {
             status = updates.GITHUB;
             latest = update.latest.git;
         } else {
@@ -596,23 +532,23 @@ function checkForUpdates() {
     let git = undefined;
 
     try {
-        ctApi = JSON.parse(FileLib.getUrlContent("https://chattriggers.com/api/modules/HyJanitor"));
-        ct = "v"+ctApi.releases[0]?.releaseVersion;
+        let ctApi = JSON.parse(FileLib.getUrlContent("https://chattriggers.com/api/modules/HyJanitor"));
+        ct = "v" + ctApi.releases[0]?.releaseVersion;
 
-        gitApi = JSON.parse(FileLib.getUrlContent("https://api.github.com/repos/cognitivitydev/HyJanitor/releases"));
+        let gitApi = JSON.parse(FileLib.getUrlContent("https://api.github.com/repos/cognitivitydev/HyJanitor/releases"));
         git = gitApi[0]?.name;
 
         return {
-            current: "v"+Settings.version,
+            current: "v" + Settings.version,
             latest: {
                 ct: ct,
                 git: git
             }
         };
-    } catch(exception) {
+    } catch (exception) {
         console.error(exception)
         return {
-            current: "v"+Settings.version,
+            current: "v" + Settings.version,
             latest: {
                 ct: undefined,
                 git: undefined

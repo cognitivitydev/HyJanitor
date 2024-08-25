@@ -40,46 +40,36 @@ class Tooltip {
             .setColor(colorScheme.light.surfaceContainerHigh.color)
             .setHeight(new ChildBasedSizeConstraint());
         this.#components.title.container = new UIContainer()
-            .setX((0).pixels())
-            .setY(new SiblingConstraint())
-            .setWidth((100).percent())
-            .setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels()))
+            .setX((0).pixels()).setY(new SiblingConstraint())
+            .setWidth((100).percent()).setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels()))
             .setChildOf(this.#components.background);
         this.#components.title.component = new UIWrappedText("")
             .setColor(colorScheme.light.onSurface.color)
-            .setX(new CenterConstraint())
-            .setY((-2).pixels(true))
+            .setX(new CenterConstraint()).setY((-2).pixels(true))
             .setWidth((85).percent())
             .setChildOf(this.#components.title.container);
 
         this.#components.description.container = new UIContainer()
-            .setX((0).pixels())
-            .setY(new SiblingConstraint())
-            .setWidth((100).percent())
-            .setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (16).pixels()))
+            .setX((0).pixels()).setY(new SiblingConstraint())
+            .setWidth((100).percent()).setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (16).pixels()))
             .setChildOf(this.#components.background);
         this.#components.description.component = new UIWrappedText()
             .setColor(colorScheme.light.outline.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setWidth((85).percent())
             .setChildOf(this.#components.description.container);
 
         if (primaryButton) {
             this.#components.actions.container = new UIContainer()
-                .setX((0).pixels())
-                .setY(new SiblingConstraint())
-                .setWidth((100).percent())
-                .setHeight((24).pixels())
+                .setX((0).pixels()).setY(new SiblingConstraint())
+                .setWidth((100).percent()).setHeight((24).pixels())
                 .setChildOf(this.#components.background);
 
             this.#components.actions.primary = primaryButton
                 .setBackgroundColor(colorScheme.light.surfaceContainerHigh.color)
                 .setLabelColor(colorScheme.light.primary.color)
-                .setX((16).pixels())
-                .setY((0).pixels())
-                .setWidth((25).percent())
-                .setHeight((20).pixels())
+                .setX((16).pixels()).setY((0).pixels())
+                .setWidth((25).percent()).setHeight((20).pixels())
                 .onMouseEnter((button) => {
                     button.animateBackgroundColor(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.light.primaryContainer.color))
                 })
@@ -92,10 +82,8 @@ class Tooltip {
             this.#components.actions.secondary = secondaryButton
                 .setBackgroundColor(colorScheme.light.surfaceContainerHigh.color)
                 .setLabelColor(colorScheme.light.primary.color)
-                .setX(new SiblingConstraint(16))
-                .setY((0).pixels())
-                .setWidth((25).percent())
-                .setHeight((20).pixels())
+                .setX(new SiblingConstraint(16)).setY((0).pixels())
+                .setWidth((25).percent()).setHeight((20).pixels())
                 .onMouseEnter((button) => {
                     button.animateBackgroundColor(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.light.primaryContainer.color))
                 })
@@ -155,4 +143,4 @@ class Tooltip {
     }
 }
 
-export {Tooltip};
+export { Tooltip };

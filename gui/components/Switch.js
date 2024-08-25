@@ -112,54 +112,43 @@ class Switch {
                 });
             });
         this.#components.outline = new UIBlock()
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setChildOf(this.#components.container);
         this.#components.outlineL = new UICircle()
-            .setX((0).percent())
-            .setY(new CenterConstraint())
+            .setX((0).percent()).setY(new CenterConstraint())
             .setChildOf(this.#components.outline);
         this.#components.outlineR = new UICircle()
-            .setX((100).percent())
-            .setY(new CenterConstraint())
+            .setX((100).percent()).setY(new CenterConstraint())
             .setChildOf(this.#components.outline);
         this.#components.button = new UIBlock()
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setChildOf(this.#components.container);
         this.#components.buttonL = new UICircle()
-            .setX((0).percent())
-            .setY(new CenterConstraint())
+            .setX((0).percent()).setY(new CenterConstraint())
             .setChildOf(this.#components.button);
         this.#components.buttonR = new UICircle()
-            .setX((100).percent())
-            .setY(new CenterConstraint())
+            .setX((100).percent()).setY(new CenterConstraint())
             .setChildOf(this.#components.button);
         this.#components.target.circle = new UICircle()
             .setY(new CenterConstraint())
             .setChildOf(this.#components.container);
         this.#components.target.hover = new UICircle()
             .setColor(setAlpha(selected ? colorScheme.dark.primary.color : colorScheme.dark.onSurface.color, 0.1))
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setChildOf(this.#components.target.circle);
         if (showIcon) {
             this.#components.target.iconOn = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-check.png"))
                 .setColor(setAlpha(colorScheme.dark.onPrimaryContainer.color, selected ? 1 : 0))
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
-                .setWidth((200 / 3).percent())
-                .setHeight(new AspectConstraint())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
+                .setWidth((200 / 3).percent()).setHeight(new AspectConstraint())
                 .setChildOf(this.#components.target.circle);
             this.#components.target.iconOn.textureMinFilter = UIImage.TextureScalingMode.LINEAR;
             this.#components.target.iconOn.textureMagFilter = UIImage.TextureScalingMode.LINEAR;
 
             this.#components.target.iconOff = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-close.png"))
                 .setColor(setAlpha(colorScheme.dark.surfaceContainerHighest.color, selected ? 0 : 1))
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
-                .setWidth((200 / 3).percent())
-                .setHeight(new AspectConstraint())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
+                .setWidth((200 / 3).percent()).setHeight(new AspectConstraint())
                 .setChildOf(this.#components.target.circle);
             this.#components.target.iconOff.textureMinFilter = UIImage.TextureScalingMode.LINEAR;
             this.#components.target.iconOff.textureMagFilter = UIImage.TextureScalingMode.LINEAR;
@@ -351,4 +340,4 @@ class Switch {
     }
 }
 
-export {Switch};
+export { Switch };

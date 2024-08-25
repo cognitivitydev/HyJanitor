@@ -60,26 +60,20 @@ export function importClipboard() {
     } catch (exception) {
     }
     const window = new UIBlock()
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth(new FillConstraint())
-        .setHeight(new FillConstraint())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth(new FillConstraint()).setHeight(new FillConstraint())
         .setColor(new Color(0, 0, 0, 0));
 
     const background = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth((40).percent())
-        .setHeight((30).percent())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth((40).percent()).setHeight((30).percent())
         .setChildOf(window);
 
     UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-arrow_back.png"))
         .setColor(colorScheme.dark.primary.color)
-        .setX((12).pixels())
-        .setY((12).pixels())
-        .setWidth((25).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((12).pixels()).setY((12).pixels())
+        .setWidth((25).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.inversePrimary.color));
@@ -97,8 +91,7 @@ export function importClipboard() {
 
     new UIText("Import from Clipboard", false)
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((2).pixels())
         .setChildOf(background);
 
@@ -106,10 +99,8 @@ export function importClipboard() {
         .setText("Retry", 1.5, false)
         .setBackgroundColor(colorScheme.dark.inverseOnSurface.color)
         .setLabelColor(colorScheme.dark.inverseSurface.color)
-        .setX(new CenterConstraint())
-        .setY((50).percent())
-        .setWidth(new AdditiveConstraint((30).percent(), (40).pixels()))
-        .setHeight((40).pixels())
+        .setX(new CenterConstraint()).setY((50).percent())
+        .setWidth(new AdditiveConstraint((30).percent(), (40).pixels())).setHeight((40).pixels())
         .setIconSize((20).pixels())
         .onMouseClick(() => {
             importClipboard();

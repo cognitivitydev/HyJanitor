@@ -33,8 +33,7 @@ class Checkbox {
         this.#selected = selected;
         this.#backgroundColor = backgroundColor;
         this.#components.rectangle = new UIRoundedRectangle(3)
-            .setWidth((20).pixels())
-            .setHeight(new AspectConstraint())
+            .setWidth((20).pixels()).setHeight(new AspectConstraint())
             .onMouseEnter(() => {
                 this.#components.hover.setRadius((100).percent())
                 animate(this.#components.hover, (animation) => {
@@ -57,22 +56,17 @@ class Checkbox {
                 }
             });
         this.#components.fill = new UIBlock()
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
-            .setWidth(new SubtractiveConstraint((100).percent(), (4).pixels()))
-            .setHeight(new AspectConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
+            .setWidth(new SubtractiveConstraint((100).percent(), (4).pixels())).setHeight(new AspectConstraint())
             .setChildOf(this.#components.rectangle);
         this.#components.icon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-check_small.png"))
             .setColor(colorScheme.dark.onPrimary.color)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
-            .setWidth((400 / 3).percent())
-            .setHeight(new AspectConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
+            .setWidth((400 / 3).percent()).setHeight(new AspectConstraint())
             .setChildOf(this.#components.rectangle);
         this.#components.hover = new UICircle()
             .setColor(setAlpha(selected ? colorScheme.dark.primary.color : colorScheme.dark.onSurface.color, 0.1))
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setChildOf(this.#components.rectangle);
         this.#components.icon.textureMinFilter = UIImage.TextureScalingMode.LINEAR;
         this.#components.icon.textureMagFilter = UIImage.TextureScalingMode.LINEAR;
@@ -183,4 +177,4 @@ class Checkbox {
     }
 }
 
-export {Checkbox}
+export { Checkbox }

@@ -49,20 +49,17 @@ class Radio {
             });
         this.#components.background = new UICircle()
             .setColor(backgroundColor)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setRadius((80).percent())
             .setChildOf(this.#components.outline);
         this.#components.dot = new UICircle()
             .setColor(new Color(0, 0, 0, 0))
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setRadius((50).percent())
             .setChildOf(this.#components.outline);
         this.#components.hover = new UICircle()
             .setColor(setAlpha(this.#selected ? colorScheme.dark.primary.color : colorScheme.dark.onSurface.color, 0.1))
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setRadius((0).percent())
             .setChildOf(this.#components.outline);
         if (this.#selected) {
@@ -185,4 +182,4 @@ class RadioGroup {
     }
 }
 
-export {Radio, RadioGroup};
+export { Radio, RadioGroup };

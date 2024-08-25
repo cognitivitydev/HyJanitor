@@ -30,26 +30,20 @@ const File = Java.type("java.io.File");
 
 export function importUrl() {
     const window = new UIBlock()
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth(new FillConstraint())
-        .setHeight(new FillConstraint())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth(new FillConstraint()).setHeight(new FillConstraint())
         .setColor(new Color(0, 0, 0, 0));
 
     const background = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth((70).percent())
-        .setHeight((40).percent())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth((70).percent()).setHeight((40).percent())
         .setChildOf(window);
 
     UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-arrow_back.png"))
         .setColor(colorScheme.dark.primary.color)
-        .setX((12).pixels())
-        .setY((12).pixels())
-        .setWidth((25).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((12).pixels()).setY((12).pixels())
+        .setWidth((25).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.inversePrimary.color));
@@ -67,25 +61,20 @@ export function importUrl() {
 
     new UIText("Import from File / URL", false)
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((2).pixels())
         .setChildOf(background);
 
     const inputOutline = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.outline.color)
-        .setX(new CenterConstraint())
-        .setY((33).percent())
-        .setWidth((70).percent())
-        .setHeight((25).pixels())
+        .setX(new CenterConstraint()).setY((33).percent())
+        .setWidth((70).percent()).setHeight((25).pixels())
         .setChildOf(background);
 
     const inputRectangle = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint)
-        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels()))
-        .setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
+        .setX(new CenterConstraint()).setY(new CenterConstraint)
+        .setWidth(new SubtractiveConstraint((100).percent(), (2).pixels())).setHeight(new SubtractiveConstraint((100).percent(), (2).pixels()))
         .onMouseClick(() => {
             inputText.grabWindowFocus();
         })
@@ -93,24 +82,19 @@ export function importUrl() {
 
     const inputLabelBackground = new UIBlock()
         .setColor(colorScheme.dark.surface.color)
-        .setX((16).pixels())
-        .setY((-3).pixels())
-        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels()))
-        .setHeight(new ChildBasedSizeConstraint())
+        .setX((16).pixels()).setY((-3).pixels())
+        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (3).pixels())).setHeight(new ChildBasedSizeConstraint())
         .setChildOf(inputOutline);
 
     const inputLabel = new UIText("Location")
         .setColor(colorScheme.dark.onSurfaceVariant.color)
-        .setX((2).pixels())
-        .setY((0).pixels())
+        .setX((2).pixels()).setY((0).pixels())
         .setChildOf(inputLabelBackground);
 
     const inputText = new UITextInput()
         .setColor(colorScheme.dark.onSurface.color)
-        .setX((8).pixels())
-        .setY(new AdditiveConstraint(new CenterConstraint(), (2).pixels()))
-        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels()))
-        .setHeight((15).pixels())
+        .setX((8).pixels()).setY(new AdditiveConstraint(new CenterConstraint(), (2).pixels()))
+        .setWidth(new SubtractiveConstraint(new FillConstraint(), (12).pixels())).setHeight((15).pixels())
         .setTextScale((1.5).pixels())
         .setChildOf(inputRectangle);
 
@@ -118,10 +102,8 @@ export function importUrl() {
         .setText("Import File", 1.5, false)
         .setBackgroundColor(colorScheme.dark.successContainer.color)
         .setLabelColor(colorScheme.dark.success.color)
-        .setX(new SubtractiveConstraint(new CenterConstraint(), (20).percent()))
-        .setY((50).percent())
-        .setWidth((33).percent())
-        .setHeight((40).pixels())
+        .setX(new SubtractiveConstraint(new CenterConstraint(), (20).percent())).setY((50).percent())
+        .setWidth((33).percent()).setHeight((40).pixels())
         .onMouseEnter((button) => {
             button.animateBackgroundColor(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onSuccess.color));
         })
@@ -162,10 +144,8 @@ export function importUrl() {
         .setText("Import URL", 1.5, false)
         .setBackgroundColor(colorScheme.dark.successContainer.color)
         .setLabelColor(colorScheme.dark.success.color)
-        .setX(new AdditiveConstraint(new CenterConstraint(), (20).percent()))
-        .setY((50).percent())
-        .setWidth((33).percent())
-        .setHeight((40).pixels())
+        .setX(new AdditiveConstraint(new CenterConstraint(), (20).percent())).setY((50).percent())
+        .setWidth((33).percent()).setHeight((40).pixels())
         .onMouseEnter((button) => {
             button.animateBackgroundColor(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onSuccess.color));
         })

@@ -37,50 +37,40 @@ class OutlinedButton {
         this.#thickness = thickness;
         this.#components.container = new UIContainer();
         this.#components.outline = new UIBlock()
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setChildOf(this.#components.container);
         this.#components.outlineL = new UICircle()
-            .setX((0).percent())
-            .setY(new CenterConstraint())
+            .setX((0).percent()).setY(new CenterConstraint())
             .setChildOf(this.#components.outline);
         this.#components.outlineR = new UICircle()
-            .setX((100).percent())
-            .setY(new CenterConstraint())
+            .setX((100).percent()).setY(new CenterConstraint())
             .setChildOf(this.#components.outline);
         this.#components.button = new UIBlock()
             .setColor(filledColor)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setChildOf(this.#components.container);
         this.#components.buttonL = new UICircle()
             .setColor(filledColor)
-            .setX((0).percent())
-            .setY(new CenterConstraint())
+            .setX((0).percent()).setY(new CenterConstraint())
             .setChildOf(this.#components.button);
         this.#components.buttonR = new UICircle()
             .setColor(filledColor)
-            .setX((100).percent())
-            .setY(new CenterConstraint())
+            .setX((100).percent()).setY(new CenterConstraint())
             .setChildOf(this.#components.button);
         this.#components.labelContainer = new UIContainer()
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
-            .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), icon ? (8).pixels() : (0).pixels()))
-            .setHeight((100).percent())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
+            .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), icon ? (8).pixels() : (0).pixels())).setHeight((100).percent())
             .setChildOf(this.#components.container)
         if (icon) {
             this.#components.icon = UIImage.ofFile(icon)
-                .setX((0).pixels())
-                .setY(new CenterConstraint())
+                .setX((0).pixels()).setY(new CenterConstraint())
                 .setWidth(new AspectConstraint())
                 .setChildOf(this.#components.labelContainer);
             this.#components.icon.textureMinFilter = UIImage.TextureScalingMode.LINEAR;
             this.#components.icon.textureMagFilter = UIImage.TextureScalingMode.LINEAR;
         }
         this.#components.text = new UIText()
-            .setX(icon ? new AdditiveConstraint(new SiblingConstraint(), (8).pixels()) : (0).pixels())
-            .setY(new CenterConstraint())
+            .setX(icon ? new AdditiveConstraint(new SiblingConstraint(), (8).pixels()) : (0).pixels()).setY(new CenterConstraint())
             .setChildOf(this.#components.labelContainer);
     }
 
@@ -187,4 +177,4 @@ class OutlinedButton {
     }
 }
 
-export {OutlinedButton};
+export { OutlinedButton };

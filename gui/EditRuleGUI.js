@@ -67,26 +67,20 @@ export function editRule(id, index) {
     if(repairs !== 0) ruleset.rules[index] = rule;
 
     const window = new UIBlock()
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth(new FillConstraint())
-        .setHeight(new FillConstraint())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth(new FillConstraint()).setHeight(new FillConstraint())
         .setColor(new Color(0, 0, 0, 0));
 
     const background = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new SubtractiveConstraint((100).percent(), (50).pixels()))
-        .setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new SubtractiveConstraint((100).percent(), (50).pixels())).setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
         .setChildOf(window);
 
     UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-arrow_back.png"))
         .setColor(colorScheme.dark.primary.color)
-        .setX((12).pixels())
-        .setY((12).pixels())
-        .setWidth((25).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((12).pixels()).setY((12).pixels())
+        .setWidth((25).pixels()).setHeight(new AspectConstraint())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.inversePrimary.color));
@@ -104,33 +98,27 @@ export function editRule(id, index) {
 
     new UIText("§lHyJanitor")
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((3).pixels())
         .setChildOf(background);
 
     new UIText("Edit Rule #"+(index+1), false)
         .setColor(colorScheme.dark.inverseOnSurface.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((5).percent(), (30).pixels()))
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((5).percent(), (30).pixels()))
         .setTextScale((2).pixels())
         .setChildOf(background);
 
     const mainRectangle = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surfaceContainerLow.color)
-        .setX(new CenterConstraint())
-        .setY((20).percent())
-        .setWidth((90).percent())
-        .setHeight((75).percent())
+        .setX(new CenterConstraint()).setY((20).percent())
+        .setWidth((90).percent()).setHeight((75).percent())
         .setChildOf(background);
 
     let messageButton = new Button(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-chat.png"))
         .setText("...", 1.5, false)
         .setColor("tertiary", true)
-        .setX((1).percent())
-        .setY((10).pixels())
-        .setWidth(new AdditiveConstraint((20).percent(), (20).pixels()))
-        .setHeight((20).pixels())
+        .setX((1).percent()).setY((10).pixels())
+        .setWidth(new AdditiveConstraint((20).percent(), (20).pixels())).setHeight((20).pixels())
         .setIconSize((16).pixels())
         .onMouseClick((button) => {
             if(ruleset.type === "PLAYER") {
@@ -154,10 +142,8 @@ export function editRule(id, index) {
     new Button(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-rule.png"))
         .setText("Test Ruleset", 1.5, false)
         .setColor("success", true)
-        .setX(new SubtractiveConstraint(new CenterConstraint(), (10).percent()))
-        .setY((10).pixels())
-        .setWidth(new AdditiveConstraint((15).percent(), (20).pixels()))
-        .setHeight((20).pixels())
+        .setX(new SubtractiveConstraint(new CenterConstraint(), (10).percent())).setY((10).pixels())
+        .setWidth(new AdditiveConstraint((15).percent(), (20).pixels())).setHeight((20).pixels())
         .setIconSize((16).pixels())
         .onMouseClick(() => {
             testRuleset(id);
@@ -167,10 +153,8 @@ export function editRule(id, index) {
     new Button(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-info.png"))
         .setText("Information", 1.5, false)
         .setColor("primary", true)
-        .setX(new AdditiveConstraint(new CenterConstraint(), (10).percent()))
-        .setY((10).pixels())
-        .setWidth(new AdditiveConstraint((15).percent(), (20).pixels()))
-        .setHeight((20).pixels())
+        .setX(new AdditiveConstraint(new CenterConstraint(), (10).percent())).setY((10).pixels())
+        .setWidth(new AdditiveConstraint((15).percent(), (20).pixels())).setHeight((20).pixels())
         .setIconSize((17).pixels())
         .onMouseClick(() => {
             helpWindow.unhide(true);
@@ -180,10 +164,8 @@ export function editRule(id, index) {
     new Button(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-delete.png"))
         .setText("Delete Rule", 1.5, false)
         .setColor("error", true)
-        .setX(new AdditiveConstraint(new CenterConstraint(), (40).percent()))
-        .setY((10).pixels())
-        .setWidth(new AdditiveConstraint((15).percent(), (20).pixels()))
-        .setHeight((20).pixels())
+        .setX(new AdditiveConstraint(new CenterConstraint(), (40).percent())).setY((10).pixels())
+        .setWidth(new AdditiveConstraint((15).percent(), (20).pixels())).setHeight((20).pixels())
         .setIconSize((17).pixels())
         .onMouseClick(() => {
             ruleset.rules.splice(index, 1);
@@ -193,24 +175,18 @@ export function editRule(id, index) {
 
     new UIBlock()
         .setColor(colorScheme.dark.outlineVariant.color)
-        .setX(new CenterConstraint())
-        .setY((40).pixels())
-        .setWidth((95).percent())
-        .setHeight((1).pixels())
+        .setX(new CenterConstraint()).setY((40).pixels())
+        .setWidth((95).percent()).setHeight((1).pixels())
         .setChildOf(mainRectangle);
 
     const container = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY((50).pixels())
-        .setWidth((100).percent())
-        .setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
+        .setX(new CenterConstraint()).setY((50).pixels())
+        .setWidth((100).percent()).setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
         .setChildOf(mainRectangle)
 
     const scroll = new ScrollComponent("Loading...")
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth((95).percent())
-        .setHeight((95).percent())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth((95).percent()).setHeight((95).percent())
         .setChildOf(container);
 
     const slider = new UIBlock()
@@ -226,18 +202,14 @@ export function editRule(id, index) {
         let component = ruleset.rules[index][i];
         if(component.type === "MATCH") {
             let container = new UIContainer()
-                .setX(new CenterConstraint())
-                .setY(new CramSiblingConstraint(4))
-                .setWidth((98).percent())
-                .setHeight((24).pixels())
+                .setX(new CenterConstraint()).setY(new CramSiblingConstraint(4))
+                .setWidth((98).percent()).setHeight((24).pixels())
                 .setChildOf(scroll);
 
             let inverseRectangle = new UIRoundedRectangle(4)
                 .setColor(colorScheme.dark.successContainer.color)
-                .setX((0).percent())
-                .setY(new CenterConstraint())
-                .setWidth((20).pixels())
-                .setHeight(new AspectConstraint())
+                .setX((0).percent()).setY(new CenterConstraint())
+                .setWidth((20).pixels()).setHeight(new AspectConstraint())
                 .onMouseEnter((comp) => {
                     if(component.inverse) {
                         animate(comp, (animation) => {
@@ -295,18 +267,14 @@ export function editRule(id, index) {
 
             let normalIcon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-comment.png"))
                 .setColor(colorScheme.dark.success.color)
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
-                .setWidth((16).pixels())
-                .setHeight(new AspectConstraint())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
+                .setWidth((16).pixels()).setHeight(new AspectConstraint())
                 .setChildOf(inverseRectangle);
 
             let inverseIcon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-comments_disabled.png"))
                 .setColor(colorScheme.dark.error.color)
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
-                .setWidth((16).pixels())
-                .setHeight(new AspectConstraint())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
+                .setWidth((16).pixels()).setHeight(new AspectConstraint())
                 .setChildOf(inverseRectangle);
 
             if(component.inverse) {
@@ -317,10 +285,8 @@ export function editRule(id, index) {
 
             let matchRectangle = new UIRoundedRectangle(4)
                 .setColor(colorScheme.dark.tertiary.color)
-                .setX((24).pixels())
-                .setY(new CenterConstraint())
-                .setWidth((16).percent())
-                .setHeight((16).pixels())
+                .setX((24).pixels()).setY(new CenterConstraint())
+                .setWidth((16).percent()).setHeight((16).pixels())
                 .onMouseEnter(() => {
                     animate(matchText, (animation) => {
                         animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onTertiary.color));
@@ -376,18 +342,15 @@ export function editRule(id, index) {
 
             let matchText = new UIText("§l"+searchName, false)
                 .setColor(colorScheme.dark.tertiaryContainer.color)
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
                 .setTextScale((1.5).pixels())
                 .setChildOf(matchRectangle);
             if(component.inverse) matchText.setText("§m"+matchText.getText())
 
             let stringRectangle = new UIRoundedRectangle(4)
                 .setColor(colorScheme.dark.surfaceContainerHighest.color)
-                .setX(new SiblingConstraint(4))
-                .setY(new CenterConstraint())
-                .setWidth(new SubtractiveConstraint(new FillConstraint(), (8).pixels()))
-                .setHeight((16).pixels())
+                .setX(new SiblingConstraint(4)).setY(new CenterConstraint())
+                .setWidth(new SubtractiveConstraint(new FillConstraint(), (8).pixels())).setHeight((16).pixels())
                 .onMouseClick(() => {
                     text.grabWindowFocus();
                 })
@@ -395,10 +358,8 @@ export function editRule(id, index) {
 
             let text = new UITextInput()
                 .setColor(colorScheme.dark.onSurfaceVariant.color)
-                .setX((4).pixels())
-                .setY(new CenterConstraint())
-                .setWidth((250).pixels())
-                .setHeight((15).pixels())
+                .setX((4).pixels()).setY(new CenterConstraint())
+                .setWidth((250).pixels()).setHeight((15).pixels())
                 .setTextScale((1.5).pixels())
                 .onKeyType(() => {
                     component.string = text.getText();
@@ -420,10 +381,8 @@ export function editRule(id, index) {
 
             let deleteRectangle = new UIRoundedRectangle(4)
                 .setColor(colorScheme.dark.errorContainer.color)
-                .setX(new SiblingConstraint(4))
-                .setY(new CenterConstraint())
-                .setWidth((16).pixels())
-                .setHeight(new AspectConstraint())
+                .setX(new SiblingConstraint(4)).setY(new CenterConstraint())
+                .setWidth((16).pixels()).setHeight(new AspectConstraint())
                 .onMouseEnter((comp) => {
                     animate(comp, (animation) => {
                         animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onError.color));
@@ -453,24 +412,18 @@ export function editRule(id, index) {
 
             let deleteIcon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-delete.png"))
                 .setColor(colorScheme.dark.onErrorContainer.color)
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
-                .setWidth((12).pixels())
-                .setHeight(new AspectConstraint())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
+                .setWidth((12).pixels()).setHeight(new AspectConstraint())
                 .setChildOf(deleteRectangle);
         } else if(component.type === "COMPARATOR") {
             let container = new UIContainer()
-                .setX(new CenterConstraint())
-                .setY(new CramSiblingConstraint(4))
-                .setWidth((98).percent())
-                .setHeight((24).pixels())
+                .setX(new CenterConstraint()).setY(new CramSiblingConstraint(4))
+                .setWidth((98).percent()).setHeight((24).pixels())
                 .setChildOf(scroll);
 
             let comparatorRectangle = new UIRoundedRectangle(4)
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
-                .setWidth((6).percent())
-                .setHeight((16).pixels())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
+                .setWidth((6).percent()).setHeight((16).pixels())
                 .onMouseEnter((comp) => {
                     animate(comp, (animation) => {
                         animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onSecondary.color));
@@ -513,8 +466,7 @@ export function editRule(id, index) {
                 .setChildOf(container);
 
             let comparatorText = new UIText("§l???", false)
-                .setX(new CenterConstraint())
-                .setY(new CenterConstraint())
+                .setX(new CenterConstraint()).setY(new CenterConstraint())
                 .setTextScale((1.5).pixels())
                 .setChildOf(comparatorRectangle);
 
@@ -528,18 +480,14 @@ export function editRule(id, index) {
         }
     }
     let newContainer = new UIContainer()
-        .setX(new CenterConstraint())
-        .setY(new CramSiblingConstraint(12))
-        .setWidth((98).percent())
-        .setHeight((30).pixels())
+        .setX(new CenterConstraint()).setY(new CramSiblingConstraint(12))
+        .setWidth((98).percent()).setHeight((30).pixels())
         .setChildOf(scroll);
 
     let newButton = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.successContainer.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (20).pixels()))
-        .setHeight((30).pixels())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new AdditiveConstraint(new ChildBasedSizeConstraint(), (20).pixels())).setHeight((30).pixels())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.onSuccess.color));
@@ -574,48 +522,38 @@ export function editRule(id, index) {
 
     let newIcon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-edit_pencil.png"))
         .setColor(colorScheme.dark.onSuccessContainer.color)
-        .setX((8).pixels())
-        .setY(new CenterConstraint())
-        .setWidth((16).pixels())
-        .setHeight(new AspectConstraint())
+        .setX((8).pixels()).setY(new CenterConstraint())
+        .setWidth((16).pixels()).setHeight(new AspectConstraint())
         .setChildOf(newButton);
 
     let newText = new UIText("Add component", false)
         .setColor(colorScheme.dark.onSuccessContainer.color)
-        .setX((28).pixels())
-        .setY(new CenterConstraint())
+        .setX((28).pixels()).setY(new CenterConstraint())
         .setTextScale((1.5).pixels())
         .setChildOf(newButton);
 
     const helpWindow = new UIBlock()
         .setColor(new Color(0, 0, 0, 0.5))
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth((100).percent())
-        .setHeight((100).percent())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth((100).percent()).setHeight((100).percent())
         .setChildOf(window);
     helpWindow.hide(true);
 
     const helpBackground = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new AspectConstraint())
-        .setHeight((80).percent())
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new AspectConstraint()).setHeight((80).percent())
         .setChildOf(helpWindow);
 
     const helpTitle = new UIText("Help")
         .setColor(colorScheme.dark.surfaceTint.color)
-        .setX(new CenterConstraint())
-        .setY((10).pixels())
+        .setX(new CenterConstraint()).setY((10).pixels())
         .setTextScale((2).pixels())
         .setChildOf(helpBackground);
 
     const infoScroll = new ScrollComponent("Loading...")
-        .setX(new CenterConstraint())
-        .setY((8).percent())
-        .setWidth((90).percent())
-        .setHeight((90).percent())
+        .setX(new CenterConstraint()).setY((8).percent())
+        .setWidth((90).percent()).setHeight((90).percent())
         .setChildOf(helpBackground);
 
     const infoSlider = new UIBlock()
@@ -627,18 +565,14 @@ export function editRule(id, index) {
     infoScroll.setScrollBarComponent(infoSlider, true, false);
 
     new MarkdownComponent(FileLib.read("./config/ChatTriggers/modules/HyJanitor/help.md"))
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth(new FillConstraint())
-        .setHeight(new FillConstraint())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth(new FillConstraint()).setHeight(new FillConstraint())
         .setChildOf(infoScroll);
 
     UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-close.png"))
         .setColor(colorScheme.dark.inversePrimary.color)
-        .setX((5).pixels())
-        .setY((5).pixels())
-        .setWidth((24).pixels())
-        .setHeight((24).pixels())
+        .setX((5).pixels()).setY((5).pixels())
+        .setWidth((24).pixels()).setHeight((24).pixels())
         .onMouseEnter((comp) => {
             animate(comp, (animation) => {
                 animation.setColorAnimation(Animations.OUT_EXP, 0.2, new ConstantColorConstraint(colorScheme.dark.primary.color));
@@ -657,10 +591,8 @@ export function editRule(id, index) {
     if(Settings.ruleTutorial) {
         const tutorialWindow = new UIBlock()
             .setColor(new Color(0, 0, 0, 0.5))
-            .setX((0).pixels())
-            .setY((0).pixels())
-            .setWidth((100).percent())
-            .setHeight((100).percent())
+            .setX((0).pixels()).setY((0).pixels())
+            .setWidth((100).percent()).setHeight((100).percent())
             .setChildOf(window);
 
         const tutorialConfirm = new Button()
@@ -669,8 +601,7 @@ export function editRule(id, index) {
         new Dialog(tutorialConfirm)
             .setTitle("Rules", 1, false)
             .setDescription("Rules contain the conditions for removing messages. You can check messages using 5 different strategies, click to cycle between them. You can also invert the condition using the red/green button on the left. Comparisons are separated with AND/OR statements. {OR} statements are checked first, and {AND} statements are checked last. For more information, see the Information button at the top.", 1, false)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setWidth((30).percent())
             .onPrimaryClick(() => {
                 Settings.ruleTutorial = false;

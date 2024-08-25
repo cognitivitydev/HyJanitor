@@ -34,41 +34,33 @@ export function openMain() {
     let rulesets = Settings.rulesets;
 
     const window = new UIBlock()
-        .setX((0).pixels())
-        .setY((0).pixels())
-        .setWidth(new FillConstraint())
-        .setHeight(new FillConstraint())
+        .setX((0).pixels()).setY((0).pixels())
+        .setWidth(new FillConstraint()).setHeight(new FillConstraint())
         .setColor(new Color(0, 0, 0, 0));
 
     const background = new UIRoundedRectangle(35)
         .setColor(colorScheme.dark.surface.color)
-        .setX(new CenterConstraint())
-        .setY(new CenterConstraint())
-        .setWidth(new SubtractiveConstraint((100).percent(), (50).pixels()))
-        .setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
+        .setX(new CenterConstraint()).setY(new CenterConstraint())
+        .setWidth(new SubtractiveConstraint((100).percent(), (50).pixels())).setHeight(new SubtractiveConstraint((100).percent(), (50).pixels()))
         .setChildOf(window);
 
     new UIText("§lHyJanitor")
         .setColor(colorScheme.dark.primary.color)
-        .setX(new CenterConstraint())
-        .setY((5).percent())
+        .setX(new CenterConstraint()).setY((5).percent())
         .setTextScale((3).pixels())
         .setChildOf(background);
 
     new UIText("Main Menu", false)
         .setColor(colorScheme.dark.inverseOnSurface.color)
-        .setX(new CenterConstraint())
-        .setY(new AdditiveConstraint((5).percent(), (30).pixels()))
+        .setX(new CenterConstraint()).setY(new AdditiveConstraint((5).percent(), (30).pixels()))
         .setTextScale((2).pixels())
         .setChildOf(background);
 
     new Button(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-settings.png"))
         .setText("Settings", 2, false)
         .setColor("tertiary", false)
-        .setX(new CenterConstraint())
-        .setY((45).percent())
-        .setWidth((20).percent())
-        .setHeight((60).pixels())
+        .setX(new CenterConstraint()).setY((45).percent())
+        .setWidth((20).percent()).setHeight((60).pixels())
         .setIconSize((32).pixels())
         .onMouseClick(() => {
             openSettings();
@@ -77,25 +69,20 @@ export function openMain() {
 
     const statisticsTab = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surfaceContainerLow.color)
-        .setX((5).percent())
-        .setY(new SubtractiveConstraint((25).percent(), (30).pixels()))
-        .setWidth((30).percent())
-        .setHeight((50).pixels())
+        .setX((5).percent()).setY(new SubtractiveConstraint((25).percent(), (30).pixels()))
+        .setWidth((30).percent()).setHeight((50).pixels())
         .setChildOf(background);
 
     const statisticsName = new UIText("Statistics", false)
         .setColor(colorScheme.dark.surfaceVariant.color)
-        .setX(new CenterConstraint())
-        .setY((10).pixels())
+        .setX(new CenterConstraint()).setY((10).pixels())
         .setTextScale((1.5).pixels())
         .setChildOf(statisticsTab);
 
     const statisticsMain = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surfaceContainer.color)
-        .setX((5).percent())
-        .setY((25).percent())
-        .setWidth((30).percent())
-        .setHeight((65).percent())
+        .setX((5).percent()).setY((25).percent())
+        .setWidth((30).percent()).setHeight((65).percent())
         .setChildOf(background);
 
     let mostTriggeredCount = -1;
@@ -121,10 +108,8 @@ export function openMain() {
     for (let statistic of statistics) {
         let statisticRectangle = new UIRoundedRectangle(8)
             .setColor(colorScheme.dark.surfaceContainerHighest.color)
-            .setX(new CenterConstraint())
-            .setY(new SiblingConstraint(5))
-            .setWidth((90).percent())
-            .setHeight((14).percent())
+            .setX(new CenterConstraint()).setY(new SiblingConstraint(5))
+            .setWidth((90).percent()).setHeight((14).percent())
             .setChildOf(statisticsMain);
         if (statistics.indexOf(statistic) === 0) {
             statisticRectangle.setY((10).pixels());
@@ -132,15 +117,13 @@ export function openMain() {
 
         new UIText("§o" + statistic.name, false)
             .setColor(colorScheme.dark.surfaceTint.color)
-            .setX((8).pixels())
-            .setY((8).pixels())
+            .setX((8).pixels()).setY((8).pixels())
             .setTextScale((1.5).pixels())
             .setChildOf(statisticRectangle);
 
         new UIText("§o" + statistic.value, false)
             .setColor(colorScheme.dark.onSurface.color)
-            .setX((6).pixels(true))
-            .setY((4).pixels(true))
+            .setX((6).pixels(true)).setY((4).pixels(true))
             .setTextScale((1.5).pixels())
             .setChildOf(statisticRectangle);
     }
@@ -149,10 +132,8 @@ export function openMain() {
         .setText("Muted Players", 1.5, false)
         .setIconSize((21).pixels())
         .setColor("warn", true)
-        .setX(new CenterConstraint())
-        .setY((16).pixels(true))
-        .setWidth((60).percent())
-        .setHeight((40).pixels())
+        .setX(new CenterConstraint()).setY((16).pixels(true))
+        .setWidth((60).percent()).setHeight((40).pixels())
         .onMouseClick(() => {
             openMutes();
         })
@@ -160,25 +141,20 @@ export function openMain() {
 
     const rulesetsTab = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surfaceContainerLow.color)
-        .setX((65).percent())
-        .setY(new SubtractiveConstraint((25).percent(), (30).pixels()))
-        .setWidth((30).percent())
-        .setHeight((50).pixels())
+        .setX((65).percent()).setY(new SubtractiveConstraint((25).percent(), (30).pixels()))
+        .setWidth((30).percent()).setHeight((50).pixels())
         .setChildOf(background);
 
     const rulesetsName = new UIText("Message Rules", false)
         .setColor(colorScheme.dark.surfaceVariant.color)
-        .setX(new CenterConstraint())
-        .setY((10).pixels())
+        .setX(new CenterConstraint()).setY((10).pixels())
         .setTextScale((1.5).pixels())
         .setChildOf(rulesetsTab);
 
     const rulesetsMain = new UIRoundedRectangle(10)
         .setColor(colorScheme.dark.surfaceContainer.color)
-        .setX((65).percent())
-        .setY((25).percent())
-        .setWidth((30).percent())
-        .setHeight((65).percent())
+        .setX((65).percent()).setY((25).percent())
+        .setWidth((30).percent()).setHeight((65).percent())
         .setChildOf(background);
 
     for (let i = 0; i < 5; i++) {
@@ -186,25 +162,19 @@ export function openMain() {
         let ruleset = rulesets[i];
 
         let rulesetRectangle = new UIRoundedRectangle(8)
-            .setX(new CenterConstraint())
-            .setY(i === 0 ? (10).pixels() : new SiblingConstraint(5))
-            .setWidth((90).percent())
-            .setHeight((14).percent())
+            .setX(new CenterConstraint()).setY(i === 0 ? (10).pixels() : new SiblingConstraint(5))
+            .setWidth((90).percent()).setHeight((14).percent())
             .setChildOf(rulesetsMain);
 
         let ruleTitle = new UIWrappedText("Create Ruleset", false, null, false, true)
-            .setX((8).pixels())
-            .setY(new CenterConstraint())
-            .setWidth(new FillConstraint())
-            .setHeight((15).pixels())
+            .setX((8).pixels()).setY(new CenterConstraint())
+            .setWidth(new FillConstraint()).setHeight((15).pixels())
             .setTextScale((1.5).pixels())
             .setChildOf(rulesetRectangle);
 
         let arrow = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-forward.png"))
-            .setX((90).percent())
-            .setY(new CenterConstraint())
-            .setWidth((25).pixels())
-            .setHeight((25).pixels())
+            .setX((90).percent()).setY(new CenterConstraint())
+            .setWidth((25).pixels()).setHeight((25).pixels())
             .setChildOf(rulesetRectangle);
 
         if (!ruleset) {
@@ -248,10 +218,8 @@ export function openMain() {
         .setText("Edit Rulesets", 1.5, false)
         .setIconSize((21).pixels())
         .setColor("primary", true)
-        .setX(new CenterConstraint())
-        .setY((16).pixels(true))
-        .setWidth((60).percent())
-        .setHeight((40).pixels())
+        .setX(new CenterConstraint()).setY((16).pixels(true))
+        .setWidth((60).percent()).setHeight((40).pixels())
         .onMouseClick(() => {
             openRulesets();
         })
@@ -260,10 +228,8 @@ export function openMain() {
     if (Settings.mainPresetTutorial) {
         const welcomeWindow = new UIBlock()
             .setColor(new Color(0, 0, 0, 127 / 255))
-            .setX((0).pixels())
-            .setY((0).pixels())
-            .setWidth((100).percent())
-            .setHeight((100).percent())
+            .setX((0).pixels()).setY((0).pixels())
+            .setWidth((100).percent()).setHeight((100).percent())
             .setChildOf(window);
 
         const welcomeConfirm = new Button()
@@ -275,8 +241,7 @@ export function openMain() {
         new Dialog(welcomeConfirm, welcomeCancel, new File("./config/ChatTriggers/modules/HyJanitor/icons/g-draw.png"))
             .setTitle("Welcome to HyJanitor!", 1.5, false)
             .setDescription("This module contains premade presets to get you started. Would you like to choose some presets to download?", 1, false)
-            .setX(new CenterConstraint())
-            .setY(new CenterConstraint())
+            .setX(new CenterConstraint()).setY(new CenterConstraint())
             .setWidth((25).percent())
             .onPrimaryClick(() => {
                 Settings.mainPresetTutorial = false;

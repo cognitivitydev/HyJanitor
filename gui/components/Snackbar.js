@@ -32,28 +32,23 @@ class Snackbar {
         this.#timer = timer;
 
         this.#components.container = new UIContainer()
-            .setX(new CenterConstraint())
-            .setY((100).percent())
+            .setX(new CenterConstraint()).setY((100).percent())
             .setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels()));
         this.#components.rectangle = new UIRoundedRectangle(4)
             .setColor(colorScheme.light.surfaceContainerHigh.color)
-            .setX(new CenterConstraint())
-            .setY((0).pixels())
-            .setWidth((100).percent())
-            .setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (12).pixels()))
+            .setX(new CenterConstraint()).setY((0).pixels())
+            .setWidth((100).percent()).setHeight(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (12).pixels()))
             .setChildOf(this.#components.container);
         this.#components.text = new UIWrappedText("", false)
             .setColor(colorScheme.light.inverseSurface.color)
-            .setX((8).pixels())
-            .setY(new CenterConstraint())
+            .setX((8).pixels()).setY(new CenterConstraint())
             .setWidth(new SubtractiveConstraint((100).percent(), (button ? button.getComponents().container.getWidth() + 10 : 8).pixels()))
             .setChildOf(this.#components.rectangle);
         if (button) {
             this.#components.button = button
                 .setBackgroundColor(colorScheme.light.surfaceContainerHigh.color)
                 .setLabelColor(colorScheme.light.primary.color)
-                .setX((4).pixels(true))
-                .setY(new CenterConstraint())
+                .setX((4).pixels(true)).setY(new CenterConstraint())
                 .setHeight((15).pixels())
                 .onMouseEnter((button) => {
                     if (this.#buttonEnabled) {
@@ -171,4 +166,4 @@ class Snackbar {
     }
 }
 
-export {Snackbar};
+export { Snackbar };

@@ -34,10 +34,8 @@ let lines = [];
 
 const icon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/icons/g-delete.png"))
     .setColor(new Color(0, 0, 0, 0))
-    .setX((5).pixels())
-    .setY((19).pixels(true))
-    .setWidth((17).pixels())
-    .setHeight(new AspectConstraint())
+    .setX((5).pixels()).setY((19).pixels(true))
+    .setWidth((17).pixels()).setHeight(new AspectConstraint())
     .onMouseEnter(() => {
         if(!isOpen) {
             return;
@@ -108,64 +106,51 @@ const icon = UIImage.ofFile(new File("./config/ChatTriggers/modules/HyJanitor/ic
 // icon.textureMagFilter = UIImage.TextureScalingMode.LINEAR;
 
 const container = new UIContainer()
-    .setX(new CenterConstraint())
-    .setY(new CenterConstraint())
-    .setWidth(new ChildBasedSizeConstraint())
-    .setHeight(new ChildBasedMaxSizeConstraint())
+    .setX(new CenterConstraint()).setY(new CenterConstraint())
+    .setWidth(new ChildBasedSizeConstraint()).setHeight(new ChildBasedMaxSizeConstraint())
     .setChildOf(hud);
 
 const timestampOverlay = new UIBlock()
     .setColor(new Color(0, 0, 0, 0))
-    .setX(new SiblingConstraint())
-    .setY((0).pixels())
-    .setWidth(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels()))
-    .setHeight(new AdditiveConstraint(new ChildBasedSizeConstraint(), (8).pixels()))
+    .setX(new SiblingConstraint()).setY((0).pixels())
+    .setWidth(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels())).setHeight(new AdditiveConstraint(new ChildBasedSizeConstraint(), (8).pixels()))
     .setChildOf(container);
 timestampOverlay.hide(true);
 
 const chatOverlay = new UIBlock()
     .setColor(new Color(0, 0, 0, 0))
-    .setX(new SiblingConstraint())
-    .setY((0).pixels())
-    .setWidth(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels()))
-    .setHeight(new AdditiveConstraint(new ChildBasedSizeConstraint(), (8).pixels()))
+    .setX(new SiblingConstraint()).setY((0).pixels())
+    .setWidth(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels())).setHeight(new AdditiveConstraint(new ChildBasedSizeConstraint(), (8).pixels()))
     .setChildOf(container);
 chatOverlay.hide(true);
 
 const reasonOverlay = new UIBlock()
     .setColor(new Color(0, 0, 0, 0))
-    .setX(new SiblingConstraint())
-    .setY((0).pixels())
-    .setWidth(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels()))
-    .setHeight(new AdditiveConstraint(new ChildBasedSizeConstraint(), (8).pixels()))
+    .setX(new SiblingConstraint()).setY((0).pixels())
+    .setWidth(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (8).pixels())).setHeight(new AdditiveConstraint(new ChildBasedSizeConstraint(), (8).pixels()))
     .setChildOf(container);
 reasonOverlay.hide(true);
 
 const footer = new UIText("HyJanitor")
     .setColor(new Color(1, 1, 1, 0))
-    .setX(new CenterConstraint())
-    .setY(new CenterConstraint())
+    .setX(new CenterConstraint()).setY(new CenterConstraint())
     .setChildOf(hud);
 
 for(let i = 0; i < 10; i++) {
     let timestamp = new UIText("§7???")
         .setColor(new Color(0, 0, 0, 0))
-        .setX((4).pixels())
-        .setY(i == 0 ? (4).pixels() : new SiblingConstraint())
+        .setX((4).pixels()).setY(i == 0 ? (4).pixels() : new SiblingConstraint())
         .setChildOf(timestampOverlay);
 
     let line = new UIWrappedText(i == 0 ? "§e§oRecently deleted messages will appear here." : "§7...", true, null, false, true, 1, "...")
         .setColor(new Color(0, 0, 0, 0))
-        .setX((4).pixels())
-        .setY(i == 0 ? (4).pixels() : new SiblingConstraint())
-        .setWidth((320).pixels())
-        .setHeight((9).pixels())
+        .setX((4).pixels()).setY(i == 0 ? (4).pixels() : new SiblingConstraint())
+        .setWidth((320).pixels()).setHeight((9).pixels())
         .setChildOf(chatOverlay);
 
     let reason = new UIText("§7???")
         .setColor(new Color(0, 0, 0, 0))
-        .setX((4).pixels())
-        .setY(i == 0 ? (4).pixels() : new SiblingConstraint())
+        .setX((4).pixels()).setY(i == 0 ? (4).pixels() : new SiblingConstraint())
         .setChildOf(reasonOverlay);
 
     lines.push({timestamp: timestamp, line: line, reason: reason});
